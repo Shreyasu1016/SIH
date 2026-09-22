@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.db import engine, Base, check_db_connection
+from app.routers.search import router as search_router
 
 # Create database tables if they do not exist
 Base.metadata.create_all(bind=engine)
@@ -26,6 +27,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.include_router(search_router)
 
 
 @app.get("/")
