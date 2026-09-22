@@ -1,0 +1,2065 @@
+[
+  {
+    "is_number": "IS 4151:2015",
+    "title": "Protective Helmets for Two Wheeler Riders - Specification",
+    "scope_text": "This standard specifies requirements for design, construction, workmanship, finish, and performance test methods for protective helmets intended for riders of two-wheeled motor vehicles. It prescribes critical criteria for shock absorption, penetration resistance, dynamic retention under load, and peripheral vision clearance. Compliance ensures adequate head cranial protection during vehicular impact.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "Fourth Revision (2015)",
+    "reaffirmation_year": 2020,
+    "todo_comment": "TODO: Verify against BIS Know Your Standards portal before demo - verify latest amendments on helmet weight restrictions (max 1.2 kg amendment)",
+    "amendments": [
+      {
+        "amendment_no": "1",
+        "date": "2018-09",
+        "summary": "Revision in helmet mass ceiling (not exceeding 1.2 kg) and adjustment of ventilation aperture dimensions."
+      },
+      {
+        "amendment_no": "2",
+        "date": "2020-07",
+        "summary": "Relaxation of the 1.2 kg weight limit to accommodate multi-density EPS liners and full-face modular chinguard mechanisms."
+      }
+    ],
+    "related_standards": [
+      {
+        "related_is_number": "IS 16450:2016",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 7692:1975",
+        "relation_type": "test_method"
+      },
+      {
+        "related_is_number": "IS 2925:1984",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Helmet for Two Wheeler Riders (Quality Control) Order, 2020 / BIS Scheme-I (ISI Mark)"
+    }
+  },
+  {
+    "is_number": "IS 2925:1984",
+    "title": "Specification for Industrial Safety Helmets",
+    "scope_text": "Specifies physical, structural, and performance requirements for helmets worn by personnel in industrial, mining, civil construction, and tunnel engineering sites. Covers shell materials, harness suspension systems, shock absorption, flammability, and electrical insulation against accidental high-voltage contact.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "Second Revision (1984)",
+    "reaffirmation_year": 2020,
+    "todo_comment": "TODO: Verify against BIS Know Your Standards portal before demo - check draft revision harmonizing with EN 397",
+    "amendments": [
+      {
+        "amendment_no": "1",
+        "date": "1998-11",
+        "summary": "Mandated UV stabilization testing for HDPE and polycarbonate shell polymers exposed to outdoor sunlight."
+      }
+    ],
+    "related_standards": [
+      {
+        "related_is_number": "IS 7692:1975",
+        "relation_type": "test_method"
+      },
+      {
+        "related_is_number": "IS 8519:1977",
+        "relation_type": "safety"
+      },
+      {
+        "related_is_number": "IS 9562:1980",
+        "relation_type": "superseded_by"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Personal Protective Equipment - Industrial Safety Helmets (Quality Control) Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 16450:2016",
+    "title": "Visors for Protective Helmets for Two Wheeler Riders - Specification",
+    "scope_text": "Specifies optical and mechanical requirements for transparent and tinted visors fitted to protective helmets for two-wheeler riders. Covers light transmission, refractive powers, mist retardance, scratch resistance, and high-velocity stone projectile impact tests.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "First Edition (2016)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 4151:2015",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 8520:1977",
+        "relation_type": "safety"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Integrated requirement under Two-Wheeler Helmet QCO / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 9562:1980",
+    "title": "Specification for Non-metallic Helmets for Industrial Workers",
+    "scope_text": "Historic standard covering molded thermosetting and thermoplastic helmets for manufacturing operations. Laid down basic shock absorption and water absorption parameters before consolidation under modern industrial helmet specifications.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "superseded",
+    "latest_version": "First Edition (1980)",
+    "reaffirmation_year": null,
+    "related_standards": [
+      {
+        "related_is_number": "IS 2925:1984",
+        "relation_type": "superseded_by"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 17094:2019",
+    "title": "Tactical and Riot Control Helmets for Police and Paramilitary Forces",
+    "scope_text": "Specifies rigorous structural and ballistic-fragmentation performance criteria for tactical helmets used in riot dispersion and civil security operations. Prescribes reinforced composite shells, face shields resistant to chemical and blunt impact, and neck protection shrouds.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "First Edition (2019)",
+    "reaffirmation_year": 2024,
+    "todo_comment": "TODO: Verify against BIS Know Your Standards portal before demo - check Police Force & Civil Defence QCO 2023",
+    "related_standards": [
+      {
+        "related_is_number": "IS 2925:1984",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 2745:1983",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Helmet for Police Force, Civil Defence and Personal Protection (Quality Control) Order, 2023"
+    }
+  },
+  {
+    "is_number": "IS 2745:1983",
+    "title": "Specification for Non-metal Helmet for Fire Fighting and Civil Defence",
+    "scope_text": "Prescribes constructional details, radiant heat resistance, electrical breakdown resistance, and flame spread parameters for non-metal safety helmets used in firefighting operations and emergency rescue activities.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "Second Revision (1983)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 10001:1981",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 2925:1984",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Civil Defence Personal Equipment Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 15844:2010",
+    "title": "Sports Helmets - Helmets for Pedal Cyclists and Users of Skateboards and Roller Skates",
+    "scope_text": "Prescribes performance criteria for lightweight protective headgear engineered for recreational and competitive cycling, skateboarding, and roller skating. Features specific impact attenuation drop tests using flat and kerbstone anvils.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "First Edition (2010)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 4151:2015",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 7692:1975",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": false,
+      "scheme_reference": "Voluntary Product Certification Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 7692:1975",
+    "title": "Specification for Wooden Headforms for Testing of Helmets",
+    "scope_text": "Specifies anthropometric dimensions, hardwood material properties, and profile contours of wooden headforms utilized across Indian standards for testing impact attenuation, penetration resistance, and chinstrap retention of protective headgear.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "First Edition (1975)",
+    "reaffirmation_year": 2022,
+    "related_standards": [
+      {
+        "related_is_number": "IS 4151:2015",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 2925:1984",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 8519:1977",
+    "title": "Guide for Selection of Industrial Safety Equipment for Head Protection",
+    "scope_text": "Provides technical guidelines for safety engineers and procurement officers regarding selection, fitting, maintenance, and replacement cycles for industrial helmets based on hazard severity such as falling debris, lateral crush, and molten metal splash.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "First Edition (1977)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 2925:1984",
+        "relation_type": "safety"
+      },
+      {
+        "related_is_number": "IS 8520:1977",
+        "relation_type": "terminology"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 8520:1977",
+    "title": "Guide for Selection of Industrial Safety Equipment for Eye, Face and Ear Protection",
+    "scope_text": "Comprehensive recommendation guide for integrating eye visors, face shields, and ear defenders with standard industrial and construction safety helmets to maintain balanced ergonomic protection without compromising cranial shell integrity.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "First Edition (1977)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 16450:2016",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 1179:1967",
+        "relation_type": "safety"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 1179:1967",
+    "title": "Specification for Equipment for Eye and Face Protection during Welding",
+    "scope_text": "Covers helmets, hand shields, and goggles engineered to shield operators from harmful optical radiation (ultraviolet and infrared), sparks, and spatter during gas and electric arc welding operations.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "First Edition (1967)",
+    "reaffirmation_year": 2022,
+    "related_standards": [
+      {
+        "related_is_number": "IS 2925:1984",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 8520:1977",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Personal Protective Equipment Quality Control Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 3521 (Part 1):1999",
+    "title": "Industrial Safety Belts and Harnesses - Specification",
+    "scope_text": "Prescribes requirements for personal fall-arrest harnesses, lanyards, and anchorage fittings commonly coupled with industrial safety helmets during scaffolding, high-elevation construction, and tower transmission maintenance.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "Third Revision (1999)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 2925:1984",
+        "relation_type": "safety"
+      },
+      {
+        "related_is_number": "IS 8519:1977",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Industrial Safety Equipment QCO / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 10001:1981",
+    "title": "Specification for Performance Requirements for Fire Helmets",
+    "scope_text": "Outlines advanced thermo-mechanical shock resistance, water immersion stability, and flame retardance requirements for structural fire helmets utilized by municipal and aviation rescue fire services.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "First Edition (1981)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 2745:1983",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 7692:1975",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Firefighting Equipment Certification Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 9873 (Part 1):2019",
+    "title": "Safety of Toys - Part 1: Safety Aspects Related to Mechanical and Physical Properties",
+    "scope_text": "Covers mechanical safety parameters including prohibitions against rigid protrusions, choking hazards, and simulated imitation helmets sold as toys that do not offer cranial impact protection.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "First Edition (2019)",
+    "reaffirmation_year": 2024,
+    "related_standards": [
+      {
+        "related_is_number": "IS 15844:2010",
+        "relation_type": "safety"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Toys (Quality Control) Order, 2020 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 16307:2015",
+    "title": "High Visibility Warning Clothing for Professional Use - Test Methods and Requirements",
+    "scope_text": "Specifies photometric performance of retroreflective tapes and fluorescent background fabrics applied to industrial workwear and helmet shells to maximize worker conspicuity under low-light hazardous highway conditions.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "First Edition (2015)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 2925:1984",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 9000 (Part 1):1988",
+    "title": "Basic Environmental Testing Procedures for Electronic and Electrical Items: Part 1 General",
+    "scope_text": "Defines thermal shock, humidity endurance, and vibration test regimens applied to integrated smart helmet communication gear, heads-up display modules, and optical telemetry sensors.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "Second Revision (1988)",
+    "reaffirmation_year": 2022,
+    "related_standards": [
+      {
+        "related_is_number": "IS 4151:2015",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 516:1959",
+    "title": "Method of Tests for Strength of Concrete - Impact Testing Fundamentals",
+    "scope_text": "Historical test reference establishing drop-weight impact mechanics referenced in early civilian and construction crash testing protocols.",
+    "category": "Protective headgear / industrial safety helmets",
+    "status": "active",
+    "latest_version": "First Edition (1959)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 2925:1984",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 3196 (Part 1):2013",
+    "title": "Welded Low Carbon Steel Gas Cylinders Exceeding 5 Litre Water Capacity for Low Pressure Liquefiable Gases: Part 1 Cylinders for LPG",
+    "scope_text": "Prescribes requirements for design, materials, construction, welding procedures, heat treatment, and pressure testing of refillable welded low carbon steel gas cylinders exceeding 5-litre water capacity intended for domestic and commercial LPG storage. Covers standard 14.2 kg domestic and 19 kg commercial cylinders.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "Sixth Revision (2013)",
+    "reaffirmation_year": 2019,
+    "todo_comment": "TODO: Verify against BIS Know Your Standards portal before demo - check latest PESO notifications on hot tensile testing",
+    "amendments": [
+      {
+        "amendment_no": "1",
+        "date": "2016-04",
+        "summary": "Updated radiographic acceptance criteria for longitudinal seam welds and circumferential head joints."
+      },
+      {
+        "amendment_no": "2",
+        "date": "2021-12",
+        "summary": "Mandated digital RFID/barcode identification stamping on stay plates for automated bottling traceability."
+      }
+    ],
+    "related_standards": [
+      {
+        "related_is_number": "IS 3196 (Part 4):2006",
+        "relation_type": "test_method"
+      },
+      {
+        "related_is_number": "IS 8776:2003",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 7142:1995",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Gas Cylinders Rules, 2016 (PESO) & Static and Mobile Pressure Vessels QCO / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 3196 (Part 2):2006",
+    "title": "Welded Low Carbon Steel Gas Cylinders Exceeding 5 Litre Water Capacity: Part 2 Cylinders for Liquefiable Gases Other Than LPG",
+    "scope_text": "Specifies design calculations, test pressures, and metallurgical limits for welded low-carbon steel cylinders storing non-corrosive liquefiable refrigeration gases, methyl chloride, and industrial hydrocarbons.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "Fifth Revision (2006)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 3196 (Part 1):2013",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 3196 (Part 4):2006",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Gas Cylinders Rules, 2016 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 3196 (Part 4):2006",
+    "title": "Welded Low Carbon Steel Gas Cylinders: Part 4 Joint Inspection and Testing Procedures",
+    "scope_text": "Prescribes statutory hydrostatic stretch testing, burst pressure evaluation, flattening tests, and radioscopic examination methods for production batches of low pressure gas cylinders.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "First Edition (2006)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 3196 (Part 1):2013",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 5844:1970",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 7142:1995",
+    "title": "Welded Low Carbon Steel Cylinders for Low Pressure Liquefiable Gases Not Exceeding 5 Litre Water Capacity",
+    "scope_text": "Specifies requirements for compact welded portable steel cylinders up to 5-litre water capacity (commonly 2 kg and 5 kg LPG cylinders used in rural outreach, camping, and micro-distribution programs).",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "Second Revision (1995)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 8737:1995",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 3196 (Part 1):2013",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Gas Cylinders Rules & BIS Scheme-I (Mandatory ISI Mark)"
+    }
+  },
+  {
+    "is_number": "IS 8737:1995",
+    "title": "Valve Fittings for Use with Liquefied Petroleum Gas (LPG) Cylinders up to and Including 5 Litre Water Capacity",
+    "scope_text": "Specifies material composition, machining tolerances, self-closing valve mechanism, thread geometry, and gas tightness testing for valve fittings affixed to small LPG cylinders under 5 litres.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "Second Revision (1995)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 7142:1995",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 8776:2003",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "PESO Statutory Approval & Gas Cylinders (Valves and Regulators) Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 8776:2003",
+    "title": "Valve Fittings for Use with Domestic LPG Cylinders (Exceeding 5-Litre Water Capacity) - Specification",
+    "scope_text": "Prescribes construction details, copper-zinc forged alloy specifications, internal rubber seal resilience, safety relief valves, and 25.6 mm diameter compact valve outlets fitted to 14.2 kg domestic LPG cylinders.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "Third Revision (2003)",
+    "reaffirmation_year": 2022,
+    "amendments": [
+      {
+        "amendment_no": "1",
+        "date": "2012-08",
+        "summary": "Introduction of ozone-resistant synthetic fluorocarbon elastomers for O-ring stem seals."
+      }
+    ],
+    "related_standards": [
+      {
+        "related_is_number": "IS 3196 (Part 1):2013",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 9798:1995",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Liquefied Petroleum Gas Cylinder Valve Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 9798:1995",
+    "title": "Low Pressure Regulators for Use with Liquefied Petroleum Gas (LPG) Mixtures",
+    "scope_text": "Specifies design, materials, and operating performance for low-pressure domestic click-on regulators delivering nominal 29 millibar pressure from 14.2 kg domestic cylinders to household gas burners. Covers lock-up pressure, excess flow shutoff, and diaphragm fatigue testing.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "Second Revision (1995)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 8776:2003",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 9573:2017",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Domestic LPG Pressure Regulators (Quality Control) Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 9573:2017",
+    "title": "Rubber Hoses for Liquefied Petroleum Gas (LPG) - Specification",
+    "scope_text": "Specifies requirements for wire-braided and fabric-reinforced flexible rubber hoses (Suraksha hoses) used for linking domestic and commercial LPG regulators to gas stoves. Covers burst pressure resistance, ozone degradation resistance, and flame propagation resistance.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "Third Revision (2017)",
+    "reaffirmation_year": 2022,
+    "todo_comment": "TODO: Verify against BIS Know Your Standards portal before demo - check LPG hose steel reinforcement wire standards",
+    "related_standards": [
+      {
+        "related_is_number": "IS 9798:1995",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 7302:1974",
+        "relation_type": "safety"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Rubber Hoses for LPG (Quality Control) Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 7302:1974",
+    "title": "Code of Practice for Handling of Gas Cylinders and Containers in Fire Emergency",
+    "scope_text": "Formulates standard operating firefighting actions, exclusion zone radiuses, cooling deluge protocols, and bleed-off management procedures when LPG cylinders are engulfed or endangered by structural fires.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "First Edition (1974)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 3196 (Part 1):2013",
+        "relation_type": "safety"
+      },
+      {
+        "related_is_number": "IS 6278:1971",
+        "relation_type": "safety"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 7285 (Part 1):2018",
+    "title": "Refillable Seamless Steel Gas Cylinders: Part 1 Normalized Steel Cylinders",
+    "scope_text": "Specifies design, cold/hot manufacturing, and ultrasonic inspection of refillable seamless steel cylinders for compressed, liquefied, and dissolved industrial gases up to 300 bar working pressure.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "Fourth Revision (2018)",
+    "reaffirmation_year": 2023,
+    "related_standards": [
+      {
+        "related_is_number": "IS 7285 (Part 2):2018",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 5844:1970",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Gas Cylinders Rules, 2016 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 7285 (Part 2):2018",
+    "title": "Refillable Seamless Steel Gas Cylinders: Part 2 Quenched and Tempered Steel Cylinders",
+    "scope_text": "Covers high-strength alloy quenched and tempered seamless steel cylinders with minimum tensile strength greater than 1100 MPa for high-density automotive and industrial gases.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "Fourth Revision (2018)",
+    "reaffirmation_year": 2023,
+    "related_standards": [
+      {
+        "related_is_number": "IS 7285 (Part 1):2018",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Gas Cylinders Rules, 2016 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 14899:2000",
+    "title": "Liquefied Petroleum Gas Containers for Automotive Use - Specification",
+    "scope_text": "Specifies structural design, internal baffles, burst pressure ratio, and thermal bonfire resistance for automotive LPG tanks mounted in bi-fuel passenger cars and public transport autorickshaws.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "First Edition (2000)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 15100:2002",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 3196 (Part 1):2013",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Central Motor Vehicles Rules (CMVR) & Automotive Gas Containers QCO / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 13258:1991",
+    "title": "Welded Aluminium Alloy Gas Cylinders for Low Pressure Liquefiable Gases",
+    "scope_text": "Covers lightweight corrosion-resistant welded aluminium alloy cylinders for low pressure liquefiable hydrocarbons used in marine craft and aeronautical life-support applications.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "First Edition (1991)",
+    "reaffirmation_year": 2022,
+    "related_standards": [
+      {
+        "related_is_number": "IS 3196 (Part 1):2013",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 5844:1970",
+    "title": "Hydrostatic Stretch Test Method for Gas Cylinders",
+    "scope_text": "Describes water-jacket and non-water-jacket methods for measuring permanent volumetric expansion and total expansion of gas cylinders under proof hydrostatic test pressure.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "First Edition (1970)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 3196 (Part 1):2013",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 7285 (Part 1):2018",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 6278:1971",
+    "title": "Code of Safety for LPG Storage and Bottling Plants",
+    "scope_text": "Prescribes plant layout spacing, mounded bullet vessel protections, static grounding, automated gas leak detection systems, and water spray deluge systems at LPG bottling plants.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "First Edition (1971)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 7302:1974",
+        "relation_type": "safety"
+      },
+      {
+        "related_is_number": "IS 3196 (Part 1):2013",
+        "relation_type": "installation"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 15100:2002",
+    "title": "Multifunction Valves for Automotive LPG Containers - Specification",
+    "scope_text": "Prescribes constructional parameters for integrated multiport valves comprising 80% liquid fill stop limiter, pressure relief valve, excess flow limiter, and electrical level sender.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "First Edition (2002)",
+    "reaffirmation_year": 2022,
+    "related_standards": [
+      {
+        "related_is_number": "IS 14899:2000",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 8776:2003",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Automotive Safety Standards (AIS / CMVR) / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 15490:2004",
+    "title": "Cylinder Valves - Inspection and Maintenance",
+    "scope_text": "Guidelines for periodic stripping, ultrasonic spindle cleaning, thread wear gauging, and pressure reseating of cylinder valves during 5-year periodic statutory requalification.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "First Edition (2004)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 8776:2003",
+        "relation_type": "safety"
+      },
+      {
+        "related_is_number": "IS 8868:1988",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 8868:1988",
+    "title": "Periodical Inspection and Testing of High Pressure Gas Cylinders",
+    "scope_text": "Specifies visual inspection, internal endoscope corrosion assessment, tare weight verification, and acoustic emission test protocols for periodic requalification of high pressure vessels.",
+    "category": "LPG cylinders and fittings",
+    "status": "active",
+    "latest_version": "Second Revision (1988)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 7285 (Part 1):2018",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 5844:1970",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 269:2015",
+    "title": "Ordinary Portland Cement - Specification (Unifying 33, 43, and 53 Grades)",
+    "scope_text": "Covers chemical and physical requirements for Ordinary Portland Cement across grades 33, 43, and 53 consolidated under a unified specification. Prescribes limits on insoluble residue, magnesia, loss on ignition, fineness by Blaine air permeability method, setting times, soundess by Le-Chatelier and autoclave, and compressive strengths at 3, 7, and 28 days. This is the foundational standard for concrete infrastructure in India.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "Sixth Revision (2015)",
+    "reaffirmation_year": 2020,
+    "todo_comment": "TODO: Verify against BIS Know Your Standards portal before demo - check unification timeline of IS 8112 and IS 12269 into IS 269",
+    "amendments": [
+      {
+        "amendment_no": "1",
+        "date": "2018-05",
+        "summary": "Permits up to 5% performance improver mineral additives (limestone or granulated slag) in clinker grinding."
+      },
+      {
+        "amendment_no": "2",
+        "date": "2021-09",
+        "summary": "Revised maximum chloride content threshold from 0.10% to 0.08% for prestressed concrete applications."
+      }
+    ],
+    "related_standards": [
+      {
+        "related_is_number": "IS 8112:2013",
+        "relation_type": "superseded_by"
+      },
+      {
+        "related_is_number": "IS 12269:2013",
+        "relation_type": "superseded_by"
+      },
+      {
+        "related_is_number": "IS 650:1991",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 4031 (Part 6):1988",
+        "relation_type": "test_method"
+      },
+      {
+        "related_is_number": "IS 4032:1985",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Cement (Quality Control) Order, 2020 / BIS Scheme-I (Mandatory ISI Mark)"
+    }
+  },
+  {
+    "is_number": "IS 8112:2013",
+    "title": "43 Grade Ordinary Portland Cement - Specification",
+    "scope_text": "Historic standard prescribing physical and chemical properties of 43 Grade Ordinary Portland Cement with minimum 28-day compressive strength of 43 MPa. Now officially unified and superseded under IS 269:2015.",
+    "category": "Portland cement",
+    "status": "superseded",
+    "latest_version": "Second Revision (2013)",
+    "reaffirmation_year": null,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "superseded_by"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 12269:2013",
+    "title": "53 Grade Ordinary Portland Cement - Specification",
+    "scope_text": "Former standalone standard for high-strength 53 Grade Ordinary Portland Cement used in high-rise towers, prestressed girders, and precast concrete components. Subsumed under consolidated IS 269:2015.",
+    "category": "Portland cement",
+    "status": "superseded",
+    "latest_version": "Second Revision (2013)",
+    "reaffirmation_year": null,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "superseded_by"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 1489 (Part 1):2015",
+    "title": "Portland Pozzolana Cement - Specification: Part 1 Fly Ash Based",
+    "scope_text": "Specifies manufacturing requirements, pozzolanic activity ratios, and performance criteria for Portland Pozzolana Cement utilizing 15% to 35% pulverized fuel ash (fly ash). Widely used in hydraulic structures, marine construction, and mass concrete placements due to reduced heat of hydration and sulphate resistance.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "Fourth Revision (2015)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 3812 (Part 1):2013",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 4031 (Part 6):1988",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Cement (Quality Control) Order, 2020 / BIS Scheme-I (Mandatory ISI Mark)"
+    }
+  },
+  {
+    "is_number": "IS 1489 (Part 2):2015",
+    "title": "Portland Pozzolana Cement - Specification: Part 2 Calcined Clay Based",
+    "scope_text": "Covers Portland Pozzolana Cement produced by intergrinding Portland cement clinker and gypsum with calcined clay pozzolana or blending. Delivers low permeability concrete resistant to chemical weathering.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "Fourth Revision (2015)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 1489 (Part 1):2015",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Cement (Quality Control) Order, 2020 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 455:2015",
+    "title": "Portland Slag Cement (PSC) - Specification",
+    "scope_text": "Specifies composition, physical fineness, and chemical parameters of Portland Slag Cement manufactured by intimately grinding Portland cement clinker, gypsum, and granulated blast furnace slag (25% to 70%). Highly recommended for sewage treatment plants, coastal jetties, and marine piling.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "Fifth Revision (2015)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 4031 (Part 5):1988",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Cement (Quality Control) Order, 2020 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 8041:1990",
+    "title": "Rapid Hardening Portland Cement - Specification",
+    "scope_text": "Prescribes high tricalcium silicate (C3S) content and extra-fine grinding criteria for rapid hardening Portland cement developed for fast formwork stripping, precast concrete factories, and emergency cold-weather road repairs.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "Second Revision (1990)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 4031 (Part 6):1988",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Cement (Quality Control) Order, 2020 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 8042:2015",
+    "title": "White Portland Cement - Specification",
+    "scope_text": "Specifies manufacturing parameters and iron oxide limit (< 0.4%) for white Portland cement intended for architectural facades, terrazzo tile flooring, decorative grouting, and ornamental casting. Includes minimum 70% Hunter L-scale whiteness index test.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "Third Revision (2015)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Cement (Quality Control) Order, 2020 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 8043:1991",
+    "title": "Hydrophobic Portland Cement - Specification",
+    "scope_text": "Covers Portland cement interground with oleic or stearic acid film-forming agents that form a water-repellent protective layer around cement grains, preventing premature hydration during long maritime transport and monsoon warehouse storage.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "Second Revision (1991)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Cement (Quality Control) Order, 2020 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 12330:1988",
+    "title": "Sulphate Resisting Portland Cement - Specification",
+    "scope_text": "Specifies chemical composition limiting tricalcium aluminate (C3A) to less than 5.0% to prevent expansive ettringite formation in soils and groundwater with severe sulphate salt concentrations.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "First Edition (1988)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 4032:1985",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Cement (Quality Control) Order, 2020 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 12600:1989",
+    "title": "Low Heat Portland Cement - Specification",
+    "scope_text": "Specifies cement with reduced heat of hydration (< 65 cal/g at 7 days) formulated for massive dam concrete, gravity spillways, and heavy foundation rafts to avoid thermal contraction cracking.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "First Edition (1989)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Cement (Quality Control) Order, 2020 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 16415:2015",
+    "title": "Composite Cement - Specification",
+    "scope_text": "Specifies ternary blended cement engineered by combining Portland clinker with both granulated blast furnace slag (20-50%) and fly ash (15-35%). Maximizes carbon offset while ensuring enhanced durability in aggressive chemical environments.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "First Edition (2015)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 455:2015",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 1489 (Part 1):2015",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Cement (Quality Control) Order, 2020 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 650:1991",
+    "title": "Specification for Standard Sand for Testing of Cement",
+    "scope_text": "Specifies physical grading, silica purity (> 98%), and grain shape of Indian standard sand obtained from Ennore (Tamil Nadu) used across all Indian laboratories for mortar cube compressive strength determination.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "Second Revision (1991)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 4031 (Part 6):1988",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Standard Sand Certification Scheme / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 4031 (Part 1):1996",
+    "title": "Methods of Physical Tests for Hydraulic Cement: Part 1 Determination of Fineness by Dry Sieving",
+    "scope_text": "Prescribes apparatus and procedure for determining residue on 90-micron IS sieve for monitoring coarse fraction in milled hydraulic cements.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "Second Revision (1996)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 4031 (Part 4):1988",
+    "title": "Methods of Physical Tests for Hydraulic Cement: Part 4 Determination of Consistency of Standard Cement Paste",
+    "scope_text": "Prescribes Vicat apparatus plunging needle methodology for calculating standard normal consistency water percentage (P) necessary for subsequent setting time and soundness evaluations.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "First Revision (1988)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "test_method"
+      },
+      {
+        "related_is_number": "IS 4031 (Part 5):1988",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 4031 (Part 5):1988",
+    "title": "Methods of Physical Tests for Hydraulic Cement: Part 5 Determination of Initial and Final Setting Times",
+    "scope_text": "Specifies Vicat needle penetration timings for establishing initial setting time (minimum 30 minutes) and final setting time (maximum 600 minutes) of hydraulic cement pastes.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "First Revision (1988)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "test_method"
+      },
+      {
+        "related_is_number": "IS 4031 (Part 4):1988",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 4031 (Part 6):1988",
+    "title": "Methods of Physical Tests for Hydraulic Cement: Part 6 Determination of Compressive Strength of Hydraulic Cement (Other than Masonry Cement)",
+    "scope_text": "Details the standard test procedure for casting, water curing at 27±2°C, and crushing 70.6 mm mortar cubes prepared with standard Ennore sand to verify 3-day, 7-day, and 28-day compliance.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "First Revision (1988)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "test_method"
+      },
+      {
+        "related_is_number": "IS 650:1991",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 4032:1985",
+    "title": "Method of Chemical Analysis of Hydraulic Cement",
+    "scope_text": "Details referee chemical gravimetric and titrimetric methods for quantifying silica, alumina, ferric oxide, lime, magnesia, sulfuric anhydride, insoluble residue, and loss on ignition.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "First Revision (1985)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 269:2015",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 3812 (Part 1):2013",
+    "title": "Pulverized Fuel Ash: Part 1 For Use as Pozzolana in Cement, Cement Mortar and Concrete",
+    "scope_text": "Specifies chemical and physical requirements for coal thermal power plant fly ash (reactive silica, carbon content, fineness) utilized in blending Portland Pozzolana Cement under IS 1489.",
+    "category": "Portland cement",
+    "status": "active",
+    "latest_version": "Third Revision (2013)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 1489 (Part 1):2015",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 14543:2016",
+    "title": "Packaged Drinking Water (Other than Packaged Natural Mineral Water) - Specification",
+    "scope_text": "Prescribes stringent physical, organoleptic, chemical, heavy metal, radiological, and microbiological standards for water derived from any potable source subjected to treatment (e.g. reverse osmosis, demineralization, ozonation, filtration) and sealed in food-grade plastic or glass containers for direct human consumption. Sets zero-tolerance limits for E. coli, coliforms, faecal streptococci, and Pseudomonas aeruginosa, as well as strict thresholds for total dissolved solids (TDS), pesticide residues, bromates, and microplastics.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "Second Revision (2016)",
+    "reaffirmation_year": 2021,
+    "todo_comment": "TODO: Verify against BIS Know Your Standards portal before demo - check recent amendments on allowable mineral remineralization (calcium, magnesium minimums)",
+    "amendments": [
+      {
+        "amendment_no": "1",
+        "date": "2017-06",
+        "summary": "Mandated minimum magnesium content of 20 mg/L and calcium content of 10 mg/L in remineralized treated water."
+      },
+      {
+        "amendment_no": "2",
+        "date": "2020-11",
+        "summary": "Revised maximum permissible limit of bromate from 0.01 mg/L to 0.005 mg/L to mitigate carcinogenic ozonation byproducts."
+      }
+    ],
+    "related_standards": [
+      {
+        "related_is_number": "IS 15410:2003",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 13428:2005",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 10500:2012",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 1622:1981",
+        "relation_type": "test_method"
+      },
+      {
+        "related_is_number": "IS 3025 (Part 16):1984",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Food Safety and Standards Act (FSSAI) & Packaged Drinking Water QCO / BIS Scheme-I (Mandatory ISI Mark)"
+    }
+  },
+  {
+    "is_number": "IS 13428:2005",
+    "title": "Packaged Natural Mineral Water - Specification",
+    "scope_text": "Specifies microbiological, chemical, and natural mineral composition parameters for spring or artesian well water packaged directly at the underground source without chemical treatment or mineral reconstitution.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "Third Revision (2005)",
+    "reaffirmation_year": 2021,
+    "amendments": [
+      {
+        "amendment_no": "1",
+        "date": "2018-02",
+        "summary": "Updated pesticide residue analytical protocol aligning with GC-MS/MS and LC-MS/MS quantification limits."
+      }
+    ],
+    "related_standards": [
+      {
+        "related_is_number": "IS 14543:2016",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 15410:2003",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Prevention of Food Adulteration / FSSAI Regulations / BIS Scheme-I (Mandatory ISI Mark)"
+    }
+  },
+  {
+    "is_number": "IS 10500:2012",
+    "title": "Drinking Water Specification (Municipal and General Supply)",
+    "scope_text": "National reference standard establishing baseline acceptable limits and permissible limits in the absence of alternate sources for drinking water supplied through municipal networks and community water schemes.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "Second Revision (2012)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 14543:2016",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 3025 (Part 11):1983",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 15410:2003",
+    "title": "Containers for Packaging of Packaged Drinking Water (Plastics) - Specification",
+    "scope_text": "Prescribes requirements for rigid and semi-rigid plastic bottles, jars, and carboys manufactured from virgin PET, polycarbonate, and polypropylene intended for packaged drinking water. Covers overall migration limits, drop impact resistance, and transparency.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Edition (2003)",
+    "reaffirmation_year": 2020,
+    "todo_comment": "TODO: Verify against BIS Know Your Standards portal before demo - check food contact plastics migration test limits update",
+    "related_standards": [
+      {
+        "related_is_number": "IS 14543:2016",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 9845:1998",
+        "relation_type": "test_method"
+      },
+      {
+        "related_is_number": "IS 15187:2002",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Mandatory conformity under IS 14543 Certification Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 15187:2002",
+    "title": "Polyethylene Terephthalate (PET) Bottles for Packaging of Packaged Drinking Water",
+    "scope_text": "Specifies resin intrinsic viscosity, acetaldehyde content limits (< 2 ppm), and burst resistance for single-use blow-molded PET bottles for packaged drinking water.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Edition (2002)",
+    "reaffirmation_year": 2022,
+    "related_standards": [
+      {
+        "related_is_number": "IS 15410:2003",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 12252:1987",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 15401:2003",
+    "title": "Polycarbonate Containers for Packaged Drinking Water (20 Litre Bulk Jars)",
+    "scope_text": "Specifies structural design, bisphenol-A (BPA) extraction thresholds, washing/sanitizing resistance, and drop impact survival for reusable 20-litre water dispenser carboys.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Edition (2003)",
+    "reaffirmation_year": 2022,
+    "related_standards": [
+      {
+        "related_is_number": "IS 15410:2003",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 9845:1998",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 9845:1998",
+    "title": "Determination of Overall Migration of Constituents of Plastics Materials and Articles Intended to Come into Contact with Foodstuffs",
+    "scope_text": "Prescribes standard laboratory analytical methods using food stimulants (distilled water, 3% acetic acid, 10% ethanol, and n-heptane) to quantify chemical leachables migrating from plastic bottles into bottled water.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "Second Revision (1998)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 15410:2003",
+        "relation_type": "test_method"
+      },
+      {
+        "related_is_number": "IS 14543:2016",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 10146:1982",
+    "title": "Polyethylene for Its Safe Use in Contact with Foodstuffs, Pharmaceuticals and Drinking Water",
+    "scope_text": "Prescribes polymer purity specifications, permitted stabilizer additives, and residual catalyst limits for low-density and high-density polyethylene used in water bottle closures and inner liners.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Edition (1982)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 15410:2003",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 10151:1982",
+    "title": "Polyvinyl Chloride (PVC) and Its Copolymers for Safe Contact with Drinking Water",
+    "scope_text": "Specifies strict residual vinyl chloride monomer limits (< 1 ppm) in PVC polymers intended for drinking water storage tanks and water piping.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Edition (1982)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 10500:2012",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 12252:1987",
+    "title": "Polyalkylene Terephthalates (PET/PBT) for Safe Contact with Foodstuffs and Drinking Water",
+    "scope_text": "Defines virgin polymer specifications and catalyst thresholds for safe manufacture of PET containers holding water and edible beverages.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Edition (1987)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 15187:2002",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 3025 (Part 11):1983",
+    "title": "Methods of Sampling and Test for Water: Part 11 Determination of pH",
+    "scope_text": "Prescribes electrometric glass electrode measurement of hydrogen-ion activity (pH) in water samples at calibrated temperatures.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Revision (1983)",
+    "reaffirmation_year": 2022,
+    "related_standards": [
+      {
+        "related_is_number": "IS 14543:2016",
+        "relation_type": "test_method"
+      },
+      {
+        "related_is_number": "IS 10500:2012",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 3025 (Part 16):1984",
+    "title": "Methods of Sampling and Test for Water: Part 16 Determination of Filterable Residue (Total Dissolved Solids - TDS)",
+    "scope_text": "Prescribes gravimetric drying protocol at 180°C for measuring total dissolved solids (TDS) in raw and processed water.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Revision (1984)",
+    "reaffirmation_year": 2022,
+    "related_standards": [
+      {
+        "related_is_number": "IS 14543:2016",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 3025 (Part 47):1994",
+    "title": "Methods of Sampling and Test for Water: Part 47 Determination of Lead in Water",
+    "scope_text": "Specifies atomic absorption spectrophotometric (AAS) and inductively coupled plasma (ICP) testing protocols for detecting sub-microgram lead contamination.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Edition (1994)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 14543:2016",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 1622:1981",
+    "title": "Methods of Sampling and Microbiological Examination of Water",
+    "scope_text": "Prescribes aseptic sample collection, membrane filtration, and incubation protocols for detecting total viable colony counts, coliform bacteria, and faecal streptococci.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Edition (1981)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 14543:2016",
+        "relation_type": "test_method"
+      },
+      {
+        "related_is_number": "IS 13428:2005",
+        "relation_type": "test_method"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 16072:2013",
+    "title": "Ultraviolet (UV) Water Disinfection Systems - Specification",
+    "scope_text": "Specifies minimum germicidal UV dose (40 mJ/cm2), lamp intensity sensors, and fail-safe automated solenoid shutoffs for continuous microbiological inactivation in bottling plants.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Edition (2013)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 14543:2016",
+        "relation_type": "installation"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 16240:2015",
+    "title": "Reverse Osmosis (RO) Based Point of Use Water Treatment Systems - Specification",
+    "scope_text": "Prescribes membrane salt rejection efficiency (> 90%), recovery ratio, recovery of essential minerals, and microbiological reduction factors for domestic and commercial RO units.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Edition (2015)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 14543:2016",
+        "relation_type": "installation"
+      },
+      {
+        "related_is_number": "IS 10500:2012",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Point of Use Water Treatment Systems QCO / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 14534:1998",
+    "title": "Guidelines for Recycling of Plastics Packaging Used in Bottled Water",
+    "scope_text": "Prescribes resin identification codes, mechanical sorting protocols, and post-consumer decontamination standards for closed-loop recycling of plastic water containers.",
+    "category": "Packaged drinking water",
+    "status": "active",
+    "latest_version": "First Edition (1998)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 15410:2003",
+        "relation_type": "safety"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 3854:1997",
+    "title": "Switches for Domestic and Similar Fixed Electrical Installations - Specification",
+    "scope_text": "Specifies mechanical, electrical, and thermal requirements for manually operated general-purpose switches with a rated voltage not exceeding 440 V and a rated current not exceeding 63 A, intended for household and commercial fixed indoor electrical installations. Prescribes endurance testing under resistive and inductive loads (up to 40,000 switching operations), temperature rise limits on terminals, electric strength, insulation resistance, creepage distances, and protection against accidental electric shock. Critical for fire safety and shock prevention in all building wiring.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "Second Revision (1997)",
+    "reaffirmation_year": 2021,
+    "todo_comment": "TODO: Verify against BIS Know Your Standards portal before demo - check draft harmonization with IEC 60669-1",
+    "amendments": [
+      {
+        "amendment_no": "1",
+        "date": "2002-04",
+        "summary": "Updated glow-wire flame retardance test on insulating mounting plates to 850°C."
+      },
+      {
+        "amendment_no": "2",
+        "date": "2019-11",
+        "summary": "Incorporation of electronic touch-dimmer and smart modular switch sub-clauses."
+      }
+    ],
+    "related_standards": [
+      {
+        "related_is_number": "IS 1293:2019",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 694:2010",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS/IEC 60898 (Part 1):2019",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Electrical Wires, Cable, Appliances and Accessories (Quality Control) Order / BIS Scheme-I (Mandatory ISI Mark)"
+    }
+  },
+  {
+    "is_number": "IS 1293:2019",
+    "title": "Plugs and Socket-Outlets for Domestic and Similar Purposes up to and Including 250 Volts and 16 Amperes - Specification",
+    "scope_text": "Prescribes construction, dimensions, pin configurations, contact withdrawal force, and shutter safety interlock requirements for 6 A, 10 A, and 16 A 2-pin and 3-pin plugs and socket-outlets used in residential and commercial premises. Mandates safety shutters preventing insertion of foreign metal objects by children.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "Fourth Revision (2019)",
+    "reaffirmation_year": 2024,
+    "todo_comment": "TODO: Verify against BIS Know Your Standards portal before demo - check mandatory enforcement date extensions for unified 10A/16A dual sockets",
+    "amendments": [
+      {
+        "amendment_no": "1",
+        "date": "2021-03",
+        "summary": "Phasing out solid pin plugs in favor of insulated-sleeve live/neutral pins preventing finger contact upon partial plug withdrawal."
+      }
+    ],
+    "related_standards": [
+      {
+        "related_is_number": "IS 3854:1997",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 694:2010",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Plugs and Socket-Outlets (Quality Control) Order, 2021 / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 694:2010",
+    "title": "Polyvinyl Chloride Insulated Unsheathed and Sheathed Cables/Cords with Rigid and Flexible Conductor for Rated Voltages up to and Including 450/750 V",
+    "scope_text": "Specifies design, conductor conductivity, PVC insulation formulation, voltage withstand testing, and flame retardancy for building wires used in conduit installations, surface wiring, and consumer appliance power cords up to 1100 V working voltage. Covers flame retardant (FR) and flame retardant low smoke (FRLS) single-core and multi-core conductors.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "Fourth Revision (2010)",
+    "reaffirmation_year": 2020,
+    "todo_comment": "TODO: Verify against BIS Know Your Standards portal before demo - check oxygen index and temperature index test limits for FRLS cables",
+    "amendments": [
+      {
+        "amendment_no": "1",
+        "date": "2014-08",
+        "summary": "Mandated minimum oxygen index of 29% for cables labeled as Flame Retardant (FR)."
+      },
+      {
+        "amendment_no": "2",
+        "date": "2020-02",
+        "summary": "Tightened conductor electrolytic copper purity to 99.97% and prohibited copper-clad aluminium (CCA) conductors."
+      }
+    ],
+    "related_standards": [
+      {
+        "related_is_number": "IS 8130:2013",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 5831:1984",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 1554 (Part 1):1988",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 3854:1997",
+        "relation_type": "installation"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Electrical Cables (Quality Control) Order / BIS Scheme-I (Mandatory ISI Mark)"
+    }
+  },
+  {
+    "is_number": "IS 1554 (Part 1):1988",
+    "title": "PVC Insulated (Heavy Duty) Electric Cables: Part 1 For Working Voltages up to and Including 1100 V",
+    "scope_text": "Specifies armoured and unarmoured heavy duty underground and feeder power cables with extruded PVC insulation and steel strip/wire mechanical armouring for commercial distribution up to 1100 V.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "Third Revision (1988)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 694:2010",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 7098 (Part 1):1988",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 8130:2013",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Electrical Cables (Quality Control) Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 1554 (Part 2):1988",
+    "title": "PVC Insulated Electric Cables: Part 2 For Working Voltages from 3.3 kV up to and Including 11 kV",
+    "scope_text": "Covers screened and armoured medium-voltage PVC insulated distribution cables for electrical utility networks and large industrial power substations.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "Second Revision (1988)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 1554 (Part 1):1988",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 7098 (Part 2):2011",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Medium and High Voltage Cables Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 7098 (Part 1):1988",
+    "title": "Crosslinked Polyethylene (XLPE) Insulated PVC Sheathed Cables: For Working Voltages up to and Including 1100 V",
+    "scope_text": "Specifies low-voltage power cables insulated with thermosetting crosslinked polyethylene (XLPE) providing higher continuous current rating (90°C operating temp vs 70°C for PVC) and short-circuit capability (250°C).",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "First Revision (1988)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 1554 (Part 1):1988",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 8130:2013",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Electrical Cables (Quality Control) Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 7098 (Part 2):2011",
+    "title": "Crosslinked Polyethylene (XLPE) Insulated Thermoplastic Sheathed Cables for 3.3 kV up to 33 kV",
+    "scope_text": "Specifies medium and high voltage power transmission cables with extruded semi-conducting conductor and insulation shielding, crosslinked insulation, and metallic tape copper screening.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "Second Revision (2011)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 7098 (Part 1):1988",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Power Transmission Cables Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 9968 (Part 1):1988",
+    "title": "Elastomer Insulated Cables: Part 1 For Working Voltages up to and Including 1100 V",
+    "scope_text": "Prescribes heavy-duty silicone, ethylene propylene rubber (EPR), and chloroprene rubber insulated flexible trailing cables for welding, mining machinery, and elevated temperature wiring.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "First Revision (1988)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 694:2010",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Industrial Rubber Insulated Cables Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 8130:2013",
+    "title": "Conductors for Insulated Electric Cables and Flexible Cords - Specification",
+    "scope_text": "Prescribes dimensional tolerances, electrical resistance per kilometer, and elongation for solid, stranded, and flexible plain and tinned copper and aluminium conductors used across Indian cable standards.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "Second Revision (2013)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 694:2010",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 1554 (Part 1):1988",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 7098 (Part 1):1988",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 5831:1984",
+    "title": "PVC Insulation and Sheath of Electric Cables - Specification",
+    "scope_text": "Specifies physical, thermal, chemical, and electrical performance of virgin PVC polymer compounds (Types A, B, C insulation and Types ST1, ST2 sheaths) used for wire extrusion.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "First Edition (1984)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 694:2010",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 1554 (Part 1):1988",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS/IEC 60898 (Part 1):2019",
+    "title": "Electrical Accessories - Circuit-Breakers for Overcurrent Protection for Household and Similar Installations (MCBs)",
+    "scope_text": "Harmonized national standard specifying AC miniature circuit breakers (MCBs) up to 125 A and breaking capacities up to 10 kA for consumer sub-distribution boards. Covers B, C, and D trip curves for residential, commercial, and motor inductive loads.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "Second Revision (2019)",
+    "reaffirmation_year": 2024,
+    "related_standards": [
+      {
+        "related_is_number": "IS 8828:1996",
+        "relation_type": "superseded_by"
+      },
+      {
+        "related_is_number": "IS 3854:1997",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 12640 (Part 1):2016",
+        "relation_type": "normative_reference"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Low Voltage Switchgear and Controlgear QCO / BIS Scheme-I (Mandatory ISI Mark)"
+    }
+  },
+  {
+    "is_number": "IS 8828:1996",
+    "title": "Circuit-breakers for Overcurrent Protection for Household and Similar Installations",
+    "scope_text": "Earlier Indian Standard governing miniature circuit breakers (MCBs). Superseded by harmonized IS/IEC 60898-1:2019.",
+    "category": "Household electrical switches and cables",
+    "status": "superseded",
+    "latest_version": "Second Revision (1996)",
+    "reaffirmation_year": null,
+    "related_standards": [
+      {
+        "related_is_number": "IS/IEC 60898 (Part 1):2019",
+        "relation_type": "superseded_by"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 12640 (Part 1):2016",
+    "title": "Residual Current Operated Circuit-Breakers without Integral Overcurrent Protection (RCCBs) for Household and Similar Uses",
+    "scope_text": "Specifies residual current devices (RCCBs/ELCBs) with 30 mA human life protection sensitivity and 100/300 mA fire protection sensitivity designed to automatically isolate circuits upon earth leakage fault.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "Second Revision (2016)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS/IEC 60898 (Part 1):2019",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 12640 (Part 2):2016",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Residual Current Circuit-Breakers QCO / BIS Scheme-I (Mandatory ISI Mark)"
+    }
+  },
+  {
+    "is_number": "IS 12640 (Part 2):2016",
+    "title": "Residual Current Operated Circuit-Breakers with Integral Overcurrent Protection (RCBOs)",
+    "scope_text": "Specifies combined devices offering both earth fault residual current protection and thermal-magnetic overcurrent/short-circuit protection in a compact single-width housing.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "Second Revision (2016)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 12640 (Part 1):2016",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS/IEC 60898 (Part 1):2019",
+        "relation_type": "related_product"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Residual Current Circuit-Breakers QCO / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 9537 (Part 1):1980",
+    "title": "Conduits for Electrical Installations: Part 1 General Requirements",
+    "scope_text": "Specifies dimensional standards, mechanical crush resistance, impact resistance, and flame spread parameters for metal and non-metal conduits routing cables in building walls.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "First Edition (1980)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 9537 (Part 2):1981",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 9537 (Part 3):1983",
+        "relation_type": "related_product"
+      },
+      {
+        "related_is_number": "IS 694:2010",
+        "relation_type": "installation"
+      }
+    ],
+    "certification": null
+  },
+  {
+    "is_number": "IS 9537 (Part 2):1981",
+    "title": "Conduits for Electrical Installations: Part 2 Rigid Steel Conduits",
+    "scope_text": "Prescribes heavy and medium gauge threaded rigid galvanized steel conduits for surface and embedded industrial and high-risk wiring installations.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "First Edition (1981)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 9537 (Part 1):1980",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 1554 (Part 1):1988",
+        "relation_type": "installation"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "Steel Tubes and Conduits QCO / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 9537 (Part 3):1983",
+    "title": "Conduits for Electrical Installations: Part 3 Rigid Pliable Self-Extinguishing PVC Conduits",
+    "scope_text": "Specifies impact-modified unplasticized PVC electrical conduits for concealed ceiling slab and brick wall recessed residential wiring.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "First Edition (1983)",
+    "reaffirmation_year": 2020,
+    "related_standards": [
+      {
+        "related_is_number": "IS 9537 (Part 1):1980",
+        "relation_type": "normative_reference"
+      },
+      {
+        "related_is_number": "IS 694:2010",
+        "relation_type": "installation"
+      }
+    ],
+    "certification": {
+      "certification_type": "BIS_ISI",
+      "mandatory": true,
+      "scheme_reference": "PVC Conduits (Quality Control) Order / BIS Scheme-I"
+    }
+  },
+  {
+    "is_number": "IS 14927 (Part 2):2001",
+    "title": "Cable Trunking and Ducting Systems for Electrical Installations - Part 2 Particular Requirements for Cable Trunking and Ducting Systems Intended for Mounting on Walls and Ceilings",
+    "scope_text": "Prescribes requirements for surface-mounted PVC and aluminium cable casing and capping trunking systems protecting building wiring against mechanical damage and dust accumulation.",
+    "category": "Household electrical switches and cables",
+    "status": "active",
+    "latest_version": "First Edition (2001)",
+    "reaffirmation_year": 2021,
+    "related_standards": [
+      {
+        "related_is_number": "IS 694:2010",
+        "relation_type": "installation"
+      },
+      {
+        "related_is_number": "IS 3854:1997",
+        "relation_type": "installation"
+      }
+    ],
+    "certification": null
+  }
+]

@@ -78,12 +78,19 @@ SIH/
      ```
    - If `DATABASE_URL` is empty, ProcurePro uses `sqlite:///./procurepro.db` automatically.
 
-5. Start the FastAPI development server:
+5. Seed the BIS Standards Database:
+   ```bash
+   python -m app.seed
+   ```
+   Loads 89 curated BIS standards across 5 mandatory categories, 172 relational graph links, amendments, and QCO certification rules from `data/seed_standards.json`.
+
+6. Start the FastAPI development server:
    ```bash
    uvicorn main:app --reload --host 127.0.0.1 --port 8000
    ```
 
-6. Verify the backend:
+7. Verify the backend:
+
    - **Health Check**: [http://127.0.0.1:8000/health](http://127.0.0.1:8000/health)
    - **Interactive API Docs (Swagger UI)**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
    - **ReDoc**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
