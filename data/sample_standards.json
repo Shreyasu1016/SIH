@@ -1,0 +1,38 @@
+[
+  {
+    "standard_id": "ISO-9001",
+    "title": "Quality Management Systems",
+    "category": "Quality & Assurance",
+    "issuing_body": "ISO",
+    "status": "Active",
+    "description": "Specifies requirements for a quality management system when an organization needs to demonstrate its ability to consistently provide products and services.",
+    "applicability": ["Manufacturing", "Services", "Procurement", "Supply Chain"]
+  },
+  {
+    "standard_id": "ISO-20400",
+    "title": "Sustainable Procurement - Guidance",
+    "category": "Sustainability & Governance",
+    "issuing_body": "ISO",
+    "status": "Active",
+    "description": "Provides guidance to organizations, independent of their activity or size, on integrating sustainability within procurement.",
+    "applicability": ["Procurement", "Supply Chain", "Environmental Governance"]
+  },
+  {
+    "standard_id": "BIS-IS-1570",
+    "title": "Schedules for Wrought Steels for General Engineering Purposes",
+    "category": "Material Specifications",
+    "issuing_body": "Bureau of Indian Standards (BIS)",
+    "status": "Active",
+    "description": "Indian standard prescribing requirements for carbon and alloy wrought steels used in heavy industrial and governmental procurement.",
+    "applicability": ["Heavy Industry", "Defense", "Railways", "Infrastructure"]
+  },
+  {
+    "standard_id": "IEEE-802.3",
+    "title": "Standard for Ethernet",
+    "category": "Information Technology",
+    "issuing_body": "IEEE",
+    "status": "Active",
+    "description": "Physical layer and data link layer's media access control (MAC) specifications for wired Ethernet networks.",
+    "applicability": ["IT Equipment", "Networking", "Telecommunications"]
+  }
+]
