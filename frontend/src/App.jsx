@@ -1,355 +1,135 @@
-import React, { useState, useEffect } from 'react';
+import { useRef, useState } from 'react'
 import {
-  Activity,
-  CheckCircle2,
-  XCircle,
-  RefreshCw,
-  Server,
-  Database,
-  Layers,
-  FileText,
-  ExternalLink,
-  Code2,
-  Zap,
-  ShieldCheck,
-  Cpu,
-  Copy,
-  Check
-} from 'lucide-react';
+  ArrowRight, CheckCircle2, ChevronDown, Clipboard, Info, RefreshCw,
+  Search, ShieldCheck, Sparkles, UploadCloud, X,
+} from 'lucide-react'
+import Scanner from './components/Scanner'
+import SplitFlapText from './components/SplitFlapText'
+import LatticeLoader from './components/LatticeLoader'
+import './App.css'
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = 'http://localhost:8000'
+const sourceLabel = (source, language) => {
+  const names = { groq: 'Groq', ollama: 'Local AI', rule_based: 'Offline rules' }
+  const languageName = language && language !== 'en' ? ` · ${language.toUpperCase()} aware` : ''
+  return `${names[source] || source || 'catalogue explanation'}${languageName}`
+}
+
+function Score({ value }) {
+  const percent = Math.round((Number(value) || 0) * 100)
+  return <div className="score"><div className="score-track"><span style={{ width: `${Math.min(100, percent)}%` }} /></div><b>{percent}%</b></div>
+}
+
+function StandardCard({ item, index }) {
+  const [open, setOpen] = useState(index === 0)
+  const metadata = item.version_info || {}
+  const relations = item.allied_standards || {}
+  const certifications = item.certifications || []
+  return (
+    <article className={`standard-card ${open ? 'is-open' : ''}`}>
+      <button className="standard-header" onClick={() => setOpen(!open)} aria-expanded={open}>
+        <span className="rank">{String(index + 1).padStart(2, '0')}</span>
+        <span className="standard-title"><strong>{item.is_number || 'Standard'}</strong><span>{item.title || 'Untitled standard'}</span></span>
+        <Score value={item.confidence ?? item.similarity_score} />
+        <ChevronDown className="chevron" size={18} />
+      </button>
+      {open && <div className="standard-body">
+        <div className="explanation"><Sparkles size={16} /><p>{item.explanation || 'This standard aligns with the submitted procurement requirement.'}</p></div>
+        <div className="meta-grid">
+          <div><label>Latest version</label><b>{metadata.latest_version || '—'}</b></div>
+          <div><label>Reaffirmed</label><b>{metadata.reaffirmation_year || '—'}</b></div>
+          <div><label>Certification</label><b>{item.certification_flag || (item.certifications?.length ? 'Applicable' : 'Review required')}</b></div>
+        </div>
+        {certifications.length > 0 && <div className="allied"><label>Conformity marks</label><div className="allied-list">{certifications.map((cert, i) => <span className={`cert-badge ${cert.mandatory ? 'mandatory' : ''}`} key={`${cert.certification_type}-${i}`}><b>{cert.certification_type || 'BIS'}</b> {cert.mandatory ? 'Mandatory' : 'Non-mandatory'}</span>)}</div></div>}
+        {Object.keys(relations).some(key => relations[key]?.length) && <details className="allied-details"><summary>Allied standards by relationship</summary>{Object.entries(relations).filter(([, values]) => values?.length).map(([type, values]) => <div className="relation-group" key={type}><label>{type.replaceAll('_', ' ')}</label><div className="allied-list">{values.map((standard, i) => <span key={`${standard.is_number}-${i}`}>{standard.is_number} · {standard.title}</span>)}</div></div>)}</details>}
+      </div>}
+    </article>
+  )
+}
 
 export default function App() {
-  const [healthData, setHealthData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [latency, setLatency] = useState(null);
-  const [copied, setCopied] = useState(false);
-  const [lastChecked, setLastChecked] = useState(null);
+  const [tab, setTab] = useState('input')
+  const [query, setQuery] = useState('')
+  const [file, setFile] = useState(null)
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [requestStatus, setRequestStatus] = useState('idle')
+  const [apiOnline, setApiOnline] = useState(null)
+  const fileInput = useRef(null)
 
-  const checkHealth = async () => {
-    setLoading(true);
-    setError(null);
-    const startTime = performance.now();
+  const recommend = async (event) => {
+    event?.preventDefault()
+    if (!query.trim() && !file) return setError('Describe a requirement or upload a PDF to begin.')
+    setLoading(true); setRequestStatus('working'); setError('')
     try {
-      const response = await fetch(`${API_BASE_URL}/health`);
-      const duration = Math.round(performance.now() - startTime);
-      setLatency(duration);
+      const options = file
+        ? (() => { const body = new FormData(); body.append('file', file); return { body } })()
+        : { headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query: query.trim(), top_k: 5 }) }
+      const endpoint = file ? '/api/recommend-from-document' : '/api/recommend'
+      const response = await fetch(`${API_BASE_URL}${endpoint}`, { method: 'POST', ...options })
+      const result = await response.json()
+      if (!response.ok) throw new Error(result.detail || 'The recommendation service could not complete this request.')
+      setData(result); setTab('results'); setRequestStatus('done')
+    } catch (err) { setError(err.message || 'Unable to reach the recommendation service.'); setRequestStatus('error') } finally { setLoading(false) }
+  }
 
-      if (!response.ok) {
-        throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
-      }
-      const data = await response.json();
-      setHealthData(data);
-      setLastChecked(new Date().toLocaleTimeString());
-    } catch (err) {
-      setError(err.message || 'Unable to connect to backend server');
-      setHealthData(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    checkHealth();
-  }, []);
-
-  const copyPayload = () => {
-    if (healthData) {
-      navigator.clipboard.writeText(JSON.stringify(healthData, null, 2));
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
-
-  const isConnected = healthData && healthData.status === 'ok';
-
+  const reset = () => { setData(null); setQuery(''); setFile(null); setError(''); setRequestStatus('idle'); setApiOnline(null); setTab('input') }
+  const checkApi = async () => { try { const response = await fetch(`${API_BASE_URL}/health`); setApiOnline(response.ok) } catch { setApiOnline(false) } }
+  const tickerWords = requestStatus === 'working' ? ['SCANNING CATALOGUE', 'RANKING EVIDENCE', 'CHECKING RELATIONSHIPS'] : ['READY FOR REQUIREMENT', 'BIS CATALOGUE CONNECTED']
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white relative overflow-hidden">
-      {/* Background Decorative Ambient Glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse"></div>
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-      <div className="absolute bottom-10 left-1/3 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-
-      {/* Top Navbar */}
-      <header className="border-b border-slate-800/80 bg-slate-950/70 backdrop-blur-xl sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/25">
-              <Layers className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <span className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
-                Procure<span className="text-indigo-400">Pro</span>
-              </span>
-              <span className="ml-2 text-xs uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-                Core Stack
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            {/* Live Health Indicator Pill */}
-            <div className={`flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all ${
-              loading
-                ? 'bg-amber-500/10 border-amber-500/30 text-amber-300'
-                : isConnected
-                ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
-                : 'bg-rose-500/10 border-rose-500/30 text-rose-400'
-            }`}>
-              <span className="relative flex h-2 w-2">
-                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-                  loading ? 'bg-amber-400' : isConnected ? 'bg-emerald-400' : 'bg-rose-400'
-                }`}></span>
-                <span className={`relative inline-flex rounded-full h-2 w-2 ${
-                  loading ? 'bg-amber-500' : isConnected ? 'bg-emerald-500' : 'bg-rose-500'
-                }`}></span>
-              </span>
-              <span>
-                {loading ? 'Pinging...' : isConnected ? `Backend Online (${latency}ms)` : 'Backend Offline'}
-              </span>
-            </div>
-
-            <a
-              href={`${API_BASE_URL}/docs`}
-              target="_blank"
-              rel="noreferrer"
-              className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 border border-slate-700 transition"
-            >
-              <span>Swagger Docs</span>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
-            </a>
-
-            <a
-              href="https://github.com/Shreyasu1016/SIH.git"
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-600/20 transition flex items-center space-x-1.5"
-            >
-              <Code2 className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">GitHub Repository</span>
-            </a>
-          </div>
-        </div>
+    <div className="app-shell">
+      <header className="topbar">
+        <div className="brand"><div className="brand-mark"><ShieldCheck size={20} /></div><div><strong>STANDARD<span> // </span>DESK</strong><small>Government procurement intelligence</small></div></div>
+        <div className="topbar-meta"><span className={`status-dot ${apiOnline === false ? 'offline' : ''}`} /> <SplitFlapText words={tickerWords} text="READY FOR REQUIREMENT" flipDuration={120} stagger={60} cycleDelay={2400} charset="alphanumeric" flipsPerChar={8} tileColor="#111827" textColor="#f8fafc" tileRadius={4} gap={6} fontSize={13} loop padTo={28} /> <span className="divider" /> BIS CATALOGUE · 2025.04</div>
+        <div className="header-actions"><button className="utility-button" onClick={checkApi}>API STATUS {apiOnline === true ? '· ONLINE' : apiOnline === false ? '· OFFLINE' : ''}</button><button className="utility-button" onClick={reset}>RESET SESSION</button></div>
       </header>
-
-      {/* Main Content */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
-        {/* Hero Section */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-medium">
-            <Zap className="w-3.5 h-3.5 text-indigo-400" />
-            <span>Full-Stack Foundation Initialized</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            ProcurePro Full-Stack Engine
-          </h1>
-          <p className="text-slate-400 text-base sm:text-lg">
-            Intelligent Procurement & Standards Compliance platform scaffolded with FastAPI,
-            React 19, Vite, and SQLite/PostgreSQL.
-          </p>
-        </div>
-
-        {/* Health Check Card Section */}
-        <div className="max-w-4xl mx-auto">
-          <div className="relative rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-xl p-6 sm:p-8 shadow-2xl overflow-hidden">
-            {/* Ambient Corner Flare */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none"></div>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-6 mb-6">
-              <div>
-                <div className="flex items-center space-x-2">
-                  <Activity className="w-5 h-5 text-indigo-400" />
-                  <h2 className="text-lg font-bold text-white">Full-Stack Health Check</h2>
-                </div>
-                <p className="text-xs text-slate-400 mt-1">
-                  Validating client-to-API communication at <code className="text-indigo-300 bg-slate-800/80 px-1.5 py-0.5 rounded">{API_BASE_URL}/health</code>
-                </p>
+      <div className="workspace">
+        <nav className="section-nav" aria-label="Sections">
+          <div className="nav-caption">WORKSPACE</div>
+          {[['input', '01', 'Input'], ['results', '02', 'Results'], ['about', '03', 'About']].map(([key, number, label]) => <button key={key} className={tab === key ? 'active' : ''} onClick={() => setTab(key)}><span>{number}</span>{label}{key === 'results' && data && <i />}</button>)}
+          <div className="nav-footer"><span>SECURE SESSION</span><b>LOCAL API / 8000</b></div>
+        </nav>
+        <main className="content">
+          {tab === 'input' && <section className="input-view">
+            <Scanner
+              color1="#5227FF" color2="#FF9FFC" color3="#FFFFFF"
+              speed={0.5} sweepSpeed={0.25} sweepWidth={1.6} sweepFalloff={6}
+              scale={1.5} frequency={2} ripple={0.22} bandDensity={11}
+              lineSharpness={5.5} glow={0.22} scanDirection="vertical"
+              colorSpread={0.7} brightness={0.85} contrast={1.1} softness={1.4}
+              vignette={0.5} scanline grain grainIntensity={0.04}
+              opacity={0.13} mouseInteraction mouseRadius={0.5} mouseStrength={0.5}
+            />
+            <div className="eyebrow">PROCUREMENT / STANDARDS DISCOVERY</div>
+            <h1>Find the standard<br /><em>behind the requirement.</em></h1>
+            <p className="lede">Translate a technical requirement into an evidence-backed Indian Standard recommendation. Search in plain language or submit a tender document.</p>
+            <form onSubmit={recommend} className="input-grid">
+              <div className="query-panel panel">
+                <div className="panel-label"><span>01 / TEXT BRIEF</span><span className="char-count">{query.length} / 2,000</span></div>
+                <textarea value={query} maxLength={2000} onChange={e => setQuery(e.target.value)} placeholder="e.g. Supply and installation of energy-efficient LED street lighting for a municipal road..." />
+                <div className="panel-hint"><Info size={14} /> Include material, performance, application or certification details.</div>
               </div>
-
-              <div className="flex items-center space-x-3 w-full sm:w-auto">
-                <button
-                  onClick={checkHealth}
-                  disabled={loading}
-                  className="flex-1 sm:flex-initial inline-flex items-center justify-center space-x-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white text-sm font-semibold shadow-lg shadow-indigo-600/25 transition active:scale-95"
-                >
-                  <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-                  <span>{loading ? 'Pinging API...' : 'Test Connection'}</span>
-                </button>
+              <div className="or-rule"><span>OR</span></div>
+              <div className="upload-panel panel" onClick={() => fileInput.current?.click()} onDragOver={e => e.preventDefault()} onDrop={e => { e.preventDefault(); setFile(e.dataTransfer.files[0]) }}>
+                <input ref={fileInput} type="file" accept=".pdf,application/pdf" onChange={e => setFile(e.target.files[0])} />
+                {file ? <><CheckCircle2 size={27} /><strong>{file.name}</strong><small>{(file.size / 1024 / 1024).toFixed(2)} MB · PDF ready</small><button type="button" className="remove-file" onClick={e => { e.stopPropagation(); setFile(null) }}><X size={14} /> Remove</button></> : <><UploadCloud size={27} /><strong>Drop a PDF here</strong><small>or click to browse · max 10 MB</small></>}
               </div>
-            </div>
-
-            {/* Status Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-              {/* Endpoint Status */}
-              <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800/90 flex flex-col justify-between">
-                <span className="text-xs font-medium text-slate-400">Endpoint Status</span>
-                <div className="flex items-center space-x-2 mt-2">
-                  {loading ? (
-                    <RefreshCw className="w-5 h-5 text-amber-400 animate-spin" />
-                  ) : isConnected ? (
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                  ) : (
-                    <XCircle className="w-5 h-5 text-rose-400" />
-                  )}
-                  <span className={`text-base font-bold uppercase tracking-wide ${
-                    loading ? 'text-amber-400' : isConnected ? 'text-emerald-400' : 'text-rose-400'
-                  }`}>
-                    {loading ? 'Checking...' : isConnected ? healthData.status : 'Disconnected'}
-                  </span>
-                </div>
-              </div>
-
-              {/* Latency */}
-              <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800/90 flex flex-col justify-between">
-                <span className="text-xs font-medium text-slate-400">Response Latency</span>
-                <div className="flex items-baseline space-x-1 mt-2">
-                  <span className="text-2xl font-black text-white">
-                    {latency !== null ? latency : '--'}
-                  </span>
-                  <span className="text-xs font-semibold text-slate-400">ms</span>
-                </div>
-              </div>
-
-              {/* Database Connection */}
-              <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800/90 flex flex-col justify-between">
-                <span className="text-xs font-medium text-slate-400">Database Dialect</span>
-                <div className="flex items-center space-x-2 mt-2">
-                  <Database className="w-4 h-4 text-indigo-400" />
-                  <span className="text-base font-bold text-white capitalize">
-                    {healthData?.database?.dialect || (isConnected ? 'Active' : '--')}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Error Message if any */}
-            {error && (
-              <div className="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300 text-sm flex items-start space-x-3">
-                <XCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
-                <div className="space-y-1">
-                  <div className="font-semibold">Backend Unreachable</div>
-                  <div className="text-xs text-rose-200/80">{error}</div>
-                  <div className="text-xs text-slate-400 pt-1">
-                    Tip: Start the backend server by running <code className="text-indigo-300 bg-slate-900 px-1 py-0.5 rounded">uvicorn main:app --reload</code> inside <code className="text-indigo-300 bg-slate-900 px-1 py-0.5 rounded">backend/</code>.
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Response Payload Viewer */}
-            <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-800/80 mb-3">
-                <div className="flex items-center space-x-2">
-                  <div className="flex space-x-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-rose-500/60"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-amber-500/60"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/60"></div>
-                  </div>
-                  <span className="text-xs font-mono text-slate-400 ml-2">JSON Response Payload</span>
-                </div>
-
-                <div className="flex items-center space-x-3">
-                  {lastChecked && (
-                    <span className="text-[11px] text-slate-500 hidden sm:inline">
-                      Last ping: {lastChecked}
-                    </span>
-                  )}
-                  {healthData && (
-                    <button
-                      onClick={copyPayload}
-                      className="inline-flex items-center space-x-1 px-2.5 py-1 text-xs rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
-                      title="Copy response payload"
-                    >
-                      {copied ? (
-                        <>
-                          <Check className="w-3.5 h-3.5 text-emerald-400" />
-                          <span className="text-emerald-400">Copied</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3.5 h-3.5" />
-                          <span>Copy</span>
-                        </>
-                      )}
-                    </button>
-                  )}
-                </div>
-              </div>
-
-              <pre className="font-mono text-xs text-indigo-300 overflow-x-auto p-2 bg-slate-950/70 rounded-lg max-h-56 leading-relaxed">
-                {loading && !healthData
-                  ? '// Waiting for API response...'
-                  : healthData
-                  ? JSON.stringify(healthData, null, 2)
-                  : `// Error connecting to ${API_BASE_URL}/health`}
-              </pre>
-            </div>
-          </div>
-        </div>
-
-        {/* Architecture Components Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {/* Backend Card */}
-          <div className="p-6 rounded-2xl border border-slate-800/80 bg-slate-900/40 hover:border-slate-700/80 transition-all space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
-              <Server className="w-5 h-5" />
-            </div>
-            <h3 className="text-base font-bold text-white">FastAPI Backend</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Modular structure with <code className="text-slate-300 font-mono">main.py</code>, SQLAlchemy models, database session pooling, and CORS configuration.
-            </p>
-            <div className="pt-2 text-xs font-medium text-indigo-400 flex items-center space-x-1">
-              <span>Path: backend/</span>
-            </div>
-          </div>
-
-          {/* Database Card */}
-          <div className="p-6 rounded-2xl border border-slate-800/80 bg-slate-900/40 hover:border-slate-700/80 transition-all space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400">
-              <Database className="w-5 h-5" />
-            </div>
-            <h3 className="text-base font-bold text-white">Database Layer</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Automatic SQLite fallback for zero-config local development, with seamless PostgreSQL production readiness via <code className="text-slate-300 font-mono">DATABASE_URL</code>.
-            </p>
-            <div className="pt-2 text-xs font-medium text-violet-400 flex items-center space-x-1">
-              <span>Path: backend/app/db.py</span>
-            </div>
-          </div>
-
-          {/* Standards Data Card */}
-          <div className="p-6 rounded-2xl border border-slate-800/80 bg-slate-900/40 hover:border-slate-700/80 transition-all space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-              <FileText className="w-5 h-5" />
-            </div>
-            <h3 className="text-base font-bold text-white">Standards Dataset</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Curated repository for technical and procurement standards (ISO, BIS, IEEE) in JSON/CSV formats for compliance auditing.
-            </p>
-            <div className="pt-2 text-xs font-medium text-emerald-400 flex items-center space-x-1">
-              <span>Path: data/sample_standards.json</span>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t border-slate-800/80 bg-slate-950/80 py-6 text-center text-xs text-slate-500">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div>
-            ProcurePro © 2026. Smart Procurement & Standards Platform.
-          </div>
-          <div className="flex items-center space-x-4">
-            <span className="inline-flex items-center space-x-1 text-slate-400">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Full-Stack Verified</span>
-            </span>
-            <span>•</span>
-            <span className="font-mono text-slate-400">FastAPI + Vite</span>
-          </div>
-        </div>
-      </footer>
+              <button className="primary-action" disabled={loading}>{loading ? <><RefreshCw className="spin" size={18} /> ANALYSING REQUIREMENT</> : <>RUN RECOMMENDATION <ArrowRight size={18} /></>}</button>
+            </form>
+            {error && <div className="error-message">{error}</div>}
+            {requestStatus !== 'idle' && <LatticeLoader status={requestStatus} label={`Thinking${data?.explanation_source ? ` (${sourceLabel(data.explanation_source)})` : ''}`} doneLabel="Recommendation ready" errorLabel="Recommendation unavailable" pattern="orbit" grid={3} shape="round" doneColor="#16A34A" errorColor="#DC2626" cellSize={6} gap={2} fontSize={13} step={90} idleOpacity={0.15} glow={false} showTimer />}
+          </section>}
+          {tab === 'results' && <section className="results-view">
+            <div className="results-heading"><div><div className="eyebrow">ANALYSIS / RECOMMENDATIONS</div><h2><SplitFlapText text={data ? `${data.results?.length || 0} relevant standards` : 'Awaiting input'} /></h2></div><button className="quiet-action" onClick={reset}><RefreshCw size={15} /> New search</button></div>
+            {loading && <LatticeLoader status="working" label="Thinking" doneLabel="Recommendation ready" errorLabel="Recommendation unavailable" pattern="orbit" grid={3} shape="round" doneColor="#16A34A" errorColor="#DC2626" cellSize={6} gap={2} fontSize={13} step={90} idleOpacity={0.15} glow={false} showTimer />}
+            {!loading && data && <><div className="query-summary"><Search size={16} /><span>{data.query || 'Uploaded PDF'}</span><b>{sourceLabel(data.explanation_source, data.language)}</b></div><div className="results-list">{(data.results || []).map((item, i) => <StandardCard key={`${item.is_number}-${i}`} item={item} index={i} />)}</div>{!data.results?.length && <div className="empty-state">No matching standards were returned. Try adding more technical detail.</div>}</>}
+            {!data && !loading && <div className="empty-state">Run a search from the Input section to see recommendations.</div>}
+          </section>}
+          {tab === 'about' && <section className="about-view"><div className="eyebrow">ABOUT / METHOD</div><h1>Public standards,<br /><em>clearer decisions.</em></h1><p className="lede">StandardDesk helps procurement teams move from an open-ended technical brief to an auditable shortlist of Indian Standards.</p><div className="about-cards"><div className="about-card"><span>01</span><h3>Retrieve</h3><p>Semantic search finds relevant standards from the BIS catalogue, beyond exact keyword matches.</p></div><div className="about-card"><span>02</span><h3>Explain</h3><p>Each recommendation includes a plain-language rationale, confidence and catalogue metadata.</p></div><div className="about-card"><span>03</span><h3>Connect</h3><p>Allied standards and certification relationships keep the wider compliance context visible.</p></div></div><div className="about-note"><Clipboard size={18} /><span>Recommendations support professional judgement. Always verify the current standard and tender conditions before issue.</span></div></section>}
+        </main>
+      </div>
+      <footer className="footer"><span>© 2025 STANDARDS DESK</span><span>Ministry-grade interface for responsible procurement</span></footer>
     </div>
-  );
+  )
 }
