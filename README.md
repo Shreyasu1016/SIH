@@ -129,6 +129,8 @@ SIH/
 | `GET` | `/` | Root API welcome & route discovery | `{"service": "ProcurePro API", "version": "0.1.0"}` |
 | `GET` | `/health` | Stack health, DB connectivity, and latency | `{"status": "ok", "service": "ProcurePro API", "database": {"status": "connected", "dialect": "sqlite"}}` |
 | `POST` | `/api/search` | Semantic standards search with allied standards, certifications, and version history | `{"query": "...", "results": [...]}` |
+| `POST` | `/api/recommend` | Semantic search with LLM/offline re-ranking and explanations | `{"query": "...", "explanation_source": "rule_based", "results": [...]}` |
+| `POST` | `/api/recommend-from-document` | Extract the first five pages of a PDF tender and run recommendations | Multipart upload with `file` and optional `top_k` |
 | `GET` | `/docs` | Interactive Swagger API documentation | Interactive OpenAPI UI |
 
 Search requests accept `{"query": "protective helmets", "top_k": 5}`. Build the
@@ -138,6 +140,14 @@ FAISS index after seeding the database, then print the complete response with:
 cd backend
 python test_search.py "protective helmets"
 ```
+
+Recommendations try Groq first, then local Ollama (`ollama pull llama3.2`), and
+finally a deterministic rule-based provider that works without internet access.
+Set `GROQ_API_KEY` in `.env` to enable the hosted tier.
+
+Recommendation queries are embedded directly with the multilingual model. The
+response includes the detected `language` code. PDF uploads are text-extracted
+from the first five pages; scanned PDFs return a clear OCR-related error.
 
 ---
 
