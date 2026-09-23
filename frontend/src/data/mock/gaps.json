@@ -1,0 +1,50 @@
+[
+  {
+    "id": "g1",
+    "area": "Seismic detailing",
+    "description": "Tender omits ductile detailing requirements for Zone III.",
+    "severity": "high",
+    "gapScore": 86,
+    "recommendation": "Add explicit reference to IS 1893 & IS 13920 ductile detailing."
+  },
+  {
+    "id": "g2",
+    "area": "Concrete cover",
+    "description": "Specified cover (30 mm) below severe-exposure minimum.",
+    "severity": "high",
+    "gapScore": 78,
+    "recommendation": "Revise to 45 mm per IS 456 Table 16."
+  },
+  {
+    "id": "g3",
+    "area": "Functional safety",
+    "description": "SIL claim without proof of IEC 61508 lifecycle evidence.",
+    "severity": "medium",
+    "gapScore": 62,
+    "recommendation": "Require SIL verification dossier from bidder."
+  },
+  {
+    "id": "g4",
+    "area": "Material traceability",
+    "description": "Partial lot tracking — no pour-level linkage defined.",
+    "severity": "medium",
+    "gapScore": 55,
+    "recommendation": "Mandate batch IDs on pour cards aligned to ISO 9001."
+  },
+  {
+    "id": "g5",
+    "area": "Information security",
+    "description": "Cloud hosting mentioned without control baseline.",
+    "severity": "low",
+    "gapScore": 34,
+    "recommendation": "Reference ISO/IEC 27001 Annex A controls."
+  },
+  {
+    "id": "g6",
+    "area": "Curing regime",
+    "description": "Curing method specified; duration matches IS 456.",
+    "severity": "low",
+    "gapScore": 18,
+    "recommendation": "No action — retain as-is."
+  }
+]

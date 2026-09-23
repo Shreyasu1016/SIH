@@ -1,12 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-:root { font-family: Manrope, sans-serif; color: #14201f; background: #f1f3ee; font-synthesis: none; }
-* { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; }
-button, textarea { font: inherit; }
-button { cursor: pointer; }
-::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: #e3e8e1; }
-::-webkit-scrollbar-thumb { background: #9eaaa0; border: 2px solid #e3e8e1; }
-::selection { color: #f6f8f2; background: #c0582b; }
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+  --color-navy-950: #182522;
+  --color-navy-900: #22332f;
+  --color-navy-800: #30443e;
+  --color-navy-700: #49615a;
+  --color-accent: #0f766e;
+  --color-teal: #0f766e;
+  --color-violet: #7c5c3b;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#f4f5f0] text-[#182522] font-sans antialiased;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(24, 37, 34, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(24, 37, 34, 0.035) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply border border-[#d9dfd7] bg-[#fbfcf8]/90 shadow-[0_18px_45px_rgba(24,37,34,0.07)];
+  }
+
+  .glass-strong {
+    @apply border border-[#cdd8d0] bg-[#fbfcf8]/95 shadow-[0_18px_45px_rgba(24,37,34,0.12)];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0f766e] via-[#218b78] to-[#a66a3f];
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.12) 50%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

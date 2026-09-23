@@ -1,0 +1,19 @@
+{
+  "tenderTitle": "Construction of Elevated Metro Corridor — Package MC-07",
+  "analyzedAt": "2026-09-14T14:30:00Z",
+  "standardsCount": 5,
+  "avgRelevance": 77,
+  "highRiskGaps": 2,
+  "checklistCompletion": 62,
+  "highlights": [
+    "Strong alignment with IS 456 and ISO 9001 for core civil & QMS scope.",
+    "Two high-severity gaps: seismic detailing and concrete cover.",
+    "IEC 61508 and ISO/IEC 27001 need verification before bid finalization."
+  ],
+  "nextSteps": [
+    "Update tender clauses for Zone III ductile detailing.",
+    "Increase specified cover to severe-exposure minimum.",
+    "Request SIL evidence pack from shortlisted vendors.",
+    "Export compliance checklist for technical evaluation committee."
+  ]
+}

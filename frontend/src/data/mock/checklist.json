@@ -1,0 +1,58 @@
+[
+  {
+    "id": "c1",
+    "clause": "CON-01",
+    "requirement": "Concrete grade shall be minimum M25 as per IS 456.",
+    "status": "met",
+    "standardRef": "IS 456:2000 §5.2"
+  },
+  {
+    "id": "c2",
+    "clause": "CON-02",
+    "requirement": "Minimum cover for severe exposure: 45 mm.",
+    "status": "partially_met",
+    "standardRef": "IS 456:2000 §26.4"
+  },
+  {
+    "id": "c3",
+    "clause": "QMS-01",
+    "requirement": "Documented quality management system certified to ISO 9001.",
+    "status": "met",
+    "standardRef": "ISO 9001:2015"
+  },
+  {
+    "id": "c4",
+    "clause": "SAFE-01",
+    "requirement": "Safety integrity level (SIL 2) for emergency shutdown.",
+    "status": "requires_verification",
+    "standardRef": "IEC 61508"
+  },
+  {
+    "id": "c5",
+    "clause": "SEIS-01",
+    "requirement": "Seismic design per IS 1893 Zone III parameters.",
+    "status": "not_met",
+    "standardRef": "IS 1893 (Part 1):2016"
+  },
+  {
+    "id": "c6",
+    "clause": "IT-01",
+    "requirement": "Information security controls for project data exchange.",
+    "status": "requires_verification",
+    "standardRef": "ISO/IEC 27001:2022"
+  },
+  {
+    "id": "c7",
+    "clause": "CON-03",
+    "requirement": "Curing period minimum 7 days for OPC concrete.",
+    "status": "met",
+    "standardRef": "IS 456:2000 §13.5"
+  },
+  {
+    "id": "c8",
+    "clause": "QMS-02",
+    "requirement": "Traceability of materials from supplier to pour location.",
+    "status": "partially_met",
+    "standardRef": "ISO 9001:2015 §8.5.2"
+  }
+]

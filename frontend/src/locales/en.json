@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "home": "Home",
+    "upload": "Upload",
+    "dashboard": "Recommendations",
+    "versions": "Versions",
+    "checklist": "Checklist",
+    "gaps": "Gap Analysis",
+    "report": "Report"
+  },
+  "hero": {
+    "badge": "SIH 26108 · Smart India Hackathon",
+    "title": "AI-powered standards for every tender",
+    "subtitle": "Upload a tender or paste specifications — NormAI recommends IS, ISO, and IEC standards with explainable relevance scores, gap analysis, and compliance checklists.",
+    "cta": "Analyze Tender",
+    "secondary": "View Demo Dashboard"
+  },
+  "upload": {
+    "title": "Ingest tender documents",
+    "drop": "Drag & drop a PDF here",
+    "browse": "or click to browse",
+    "pasteToggle": "Paste specification text",
+    "pastePlaceholder": "Paste tender clauses, BOQ notes, or technical specs…",
+    "analyze": "Run analysis"
+  },
+  "common": {
+    "loading": "Loading…",
+    "exportPdf": "Export PDF",
+    "exportExcel": "Export Excel",
+    "why": "Why this standard",
+    "newerVersion": "Newer version available",
+    "language": "Language"
+  }
+}

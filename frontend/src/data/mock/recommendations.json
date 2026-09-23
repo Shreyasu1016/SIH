@@ -1,0 +1,74 @@
+[
+  {
+    "id": "std-1",
+    "code": "IS 456:2000",
+    "title": "Plain and Reinforced Concrete — Code of Practice",
+    "body": "BIS",
+    "category": "Civil / Structural",
+    "relevanceScore": 94,
+    "confidence": "high",
+    "why": [
+      "Tender specifies M25 grade concrete and IS mix design references.",
+      "Clause 5.2 aligns with durability requirements in Section 4 of the RFP.",
+      "Semantic match on cover, curing, and acceptance criteria."
+    ],
+    "matchedClauses": ["4.1 Durability", "5.2 Mix Design", "17 Acceptance"]
+  },
+  {
+    "id": "std-2",
+    "code": "ISO 9001:2015",
+    "title": "Quality Management Systems — Requirements",
+    "body": "ISO",
+    "category": "Quality / Process",
+    "relevanceScore": 88,
+    "confidence": "high",
+    "why": [
+      "Bidder qualification requires documented QMS and audit trails.",
+      "Non-conformance handling maps to Clause 10.2.",
+      "Strong keyword overlap with 'quality plan' and 'traceability'."
+    ],
+    "matchedClauses": ["4 Context", "8 Operation", "10 Improvement"]
+  },
+  {
+    "id": "std-3",
+    "code": "IEC 61508",
+    "title": "Functional Safety of Electrical/Electronic Systems",
+    "body": "IEC",
+    "category": "Safety / Electrical",
+    "relevanceScore": 76,
+    "confidence": "medium",
+    "why": [
+      "Control system SIL requirements appear in Annex B.",
+      "Partial match on fail-safe and diagnostic coverage language."
+    ],
+    "matchedClauses": ["Part 1 Framework", "Part 3 Software"]
+  },
+  {
+    "id": "std-4",
+    "code": "IS 1893 (Part 1):2016",
+    "title": "Criteria for Earthquake Resistant Design of Structures",
+    "body": "BIS",
+    "category": "Seismic / Structural",
+    "relevanceScore": 71,
+    "confidence": "medium",
+    "why": [
+      "Site location falls in Seismic Zone III per tender geotech note.",
+      "Base shear and ductility detailing mentioned without explicit IS cite."
+    ],
+    "matchedClauses": ["6 Design Spectra", "7 Lateral Force"]
+  },
+  {
+    "id": "std-5",
+    "code": "ISO/IEC 27001:2022",
+    "title": "Information Security Management Systems",
+    "body": "ISO/IEC",
+    "category": "IT / Security",
+    "relevanceScore": 58,
+    "confidence": "low",
+    "why": [
+      "Data hosting clause exists but controls are underspecified.",
+      "Weak semantic overlap — flagged for verification only."
+    ],
+    "matchedClauses": ["A.5 Organizational", "A.8 Technological"]
+  }
+]

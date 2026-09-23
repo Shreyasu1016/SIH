@@ -1,0 +1,38 @@
+[
+  {
+    "id": "v1",
+    "version": "IS 456:1978",
+    "date": "1978-01-15",
+    "status": "superseded",
+    "notes": "Original edition — superseded by 2000 revision."
+  },
+  {
+    "id": "v2",
+    "version": "IS 456:2000",
+    "date": "2000-07-01",
+    "status": "current",
+    "notes": "Active edition cited in tender. Amendment 4 incorporated.",
+    "newerAvailable": true
+  },
+  {
+    "id": "v3",
+    "version": "IS 456:2000 (Amd 5 Draft)",
+    "date": "2025-11-12",
+    "status": "draft",
+    "notes": "Draft amendment circulating — durability clauses may change."
+  },
+  {
+    "id": "v4",
+    "version": "ISO 9001:2008",
+    "date": "2008-11-15",
+    "status": "superseded",
+    "notes": "Replaced by ISO 9001:2015."
+  },
+  {
+    "id": "v5",
+    "version": "ISO 9001:2015",
+    "date": "2015-09-15",
+    "status": "current",
+    "notes": "Current QMS baseline for bidder qualification."
+  }
+]
