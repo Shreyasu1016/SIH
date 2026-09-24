@@ -1,0 +1,9 @@
+.magic-bento{position:relative;isolation:isolate;transform-style:preserve-3d;overflow:hidden}
+.magic-bento.has-spotlight::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle 220px at var(--magic-x,50%) var(--magic-y,50%),rgba(var(--magic-glow),.14),transparent 72%);opacity:0;transition:opacity .2s ease}
+.magic-bento.has-spotlight:hover::before{opacity:1}
+.magic-bento.has-border-glow::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;border:1px solid transparent;background:radial-gradient(circle 180px at var(--magic-x,50%) var(--magic-y,50%),rgba(var(--magic-glow),.7),transparent 72%) border-box;mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);mask-composite:exclude;opacity:0;transition:opacity .2s ease}
+.magic-bento.has-border-glow:hover::after{opacity:1}
+.magic-bento>*{position:relative;z-index:1}
+.magic-ripple{position:absolute;z-index:3;width:8px;height:8px;border-radius:50%;background:rgba(var(--magic-glow),.32);transform:translate(-50%,-50%);pointer-events:none;animation:magic-ripple .55s ease-out forwards}
+@keyframes magic-ripple{to{width:360px;height:360px;opacity:0}}
+@media (prefers-reduced-motion:reduce){.magic-bento{transform:none!important}.magic-bento::before,.magic-bento::after{transition:none}}
