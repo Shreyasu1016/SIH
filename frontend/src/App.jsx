@@ -1,12 +1,14 @@
 import { useRef, useState } from 'react'
 import {
-  ArrowRight, CheckCircle2, ChevronDown, Clipboard, Info, RefreshCw,
-  Search, ShieldCheck, Sparkles, UploadCloud, X,
+  ArrowRight, BarChart3, CheckCircle2, ChevronDown, CircleHelp,
+  Clipboard, Code2, Info, LayoutDashboard, RefreshCw, Search, Settings,
+  ShieldCheck, Sparkles, UploadCloud, X,
 } from 'lucide-react'
 import Scanner from './components/Scanner'
 import SplitFlapText from './components/SplitFlapText'
 import LatticeLoader from './components/LatticeLoader'
 import './App.css'
+import './theme.css'
 
 const API_BASE_URL = 'http://localhost:8000'
 const sourceLabel = (source, language) => {
@@ -76,60 +78,80 @@ export default function App() {
 
   const reset = () => { setData(null); setQuery(''); setFile(null); setError(''); setRequestStatus('idle'); setApiOnline(null); setTab('input') }
   const checkApi = async () => { try { const response = await fetch(`${API_BASE_URL}/health`); setApiOnline(response.ok) } catch { setApiOnline(false) } }
-  const tickerWords = requestStatus === 'working' ? ['SCANNING CATALOGUE', 'RANKING EVIDENCE', 'CHECKING RELATIONSHIPS'] : ['READY FOR REQUIREMENT', 'BIS CATALOGUE CONNECTED']
+  const tickerWords = requestStatus === 'working' ? ['SCANNING CATALOGUE', 'RANKING EVIDENCE', 'CHECKING RELATIONSHIPS'] : ['LIVE CATALOGUE SCANNER']
   return (
-    <div className="app-shell">
-      <header className="topbar">
-        <div className="brand"><div className="brand-mark"><ShieldCheck size={20} /></div><div><strong>STANDARD<span> // </span>DESK</strong><small>Government procurement intelligence</small></div></div>
-        <div className="topbar-meta"><span className={`status-dot ${apiOnline === false ? 'offline' : ''}`} /> <SplitFlapText words={tickerWords} text="READY FOR REQUIREMENT" flipDuration={120} stagger={60} cycleDelay={2400} charset="alphanumeric" flipsPerChar={8} tileColor="#111827" textColor="#f8fafc" tileRadius={4} gap={6} fontSize={13} loop padTo={28} /> <span className="divider" /> BIS CATALOGUE · 2025.04</div>
-        <div className="header-actions"><button className="utility-button" onClick={checkApi}>API STATUS {apiOnline === true ? '· ONLINE' : apiOnline === false ? '· OFFLINE' : ''}</button><button className="utility-button" onClick={reset}>RESET SESSION</button></div>
-      </header>
-      <div className="workspace">
-        <nav className="section-nav" aria-label="Sections">
-          <div className="nav-caption">WORKSPACE</div>
-          {[['input', '01', 'Input'], ['results', '02', 'Results'], ['about', '03', 'About']].map(([key, number, label]) => <button key={key} className={tab === key ? 'active' : ''} onClick={() => setTab(key)}><span>{number}</span>{label}{key === 'results' && data && <i />}</button>)}
-          <div className="nav-footer"><span>SECURE SESSION</span><b>LOCAL API / 8000</b></div>
-        </nav>
-        <main className="content">
-          {tab === 'input' && <section className="input-view">
-            <Scanner
-              color1="#5227FF" color2="#FF9FFC" color3="#FFFFFF"
-              speed={0.5} sweepSpeed={0.25} sweepWidth={1.6} sweepFalloff={6}
-              scale={1.5} frequency={2} ripple={0.22} bandDensity={11}
-              lineSharpness={5.5} glow={0.22} scanDirection="vertical"
-              colorSpread={0.7} brightness={0.85} contrast={1.1} softness={1.4}
-              vignette={0.5} scanline grain grainIntensity={0.04}
-              opacity={0.13} mouseInteraction mouseRadius={0.5} mouseStrength={0.5}
-            />
-            <div className="eyebrow">PROCUREMENT / STANDARDS DISCOVERY</div>
-            <h1>Find the standard<br /><em>behind the requirement.</em></h1>
-            <p className="lede">Translate a technical requirement into an evidence-backed Indian Standard recommendation. Search in plain language or submit a tender document.</p>
-            <form onSubmit={recommend} className="input-grid">
-              <div className="query-panel panel">
-                <div className="panel-label"><span>01 / TEXT BRIEF</span><span className="char-count">{query.length} / 2,000</span></div>
-                <textarea value={query} maxLength={2000} onChange={e => setQuery(e.target.value)} placeholder="e.g. Supply and installation of energy-efficient LED street lighting for a municipal road..." />
-                <div className="panel-hint"><Info size={14} /> Include material, performance, application or certification details.</div>
+    <div className="app-shell dashboard-shell">
+      <aside className="sidebar">
+        <a className="brand" href="#overview" onClick={() => setTab('input')}>
+          <span className="brand-mark"><ShieldCheck size={19} /></span>
+          <span className="brand-copy"><strong>PROCUREPRO</strong><small>Procurement intelligence</small></span>
+        </a>
+        <button className="workspace-switcher"><span className="workspace-avatar">MP</span><span><strong>Municipal procurement</strong><small>Workspace</small></span><ChevronDown size={15} /></button>
+        <div className="sidebar-group">
+          <span className="sidebar-label">WORKSPACE</span>
+          <button className={`sidebar-link ${tab === 'input' ? 'active' : ''}`} onClick={() => setTab('input')}><LayoutDashboard size={16} />Overview</button>
+          <button className={`sidebar-link ${tab === 'new-analysis' ? 'active' : ''}`} onClick={() => setTab('new-analysis')}><Search size={16} />New analysis</button>
+          <button className={`sidebar-link ${tab === 'results' ? 'active' : ''}`} onClick={() => setTab('results')}><BarChart3 size={16} />Results{data && <span className="nav-badge">{data.results?.length || 0}</span>}</button>
+        </div>
+        <div className="sidebar-group manage-group">
+          <span className="sidebar-label">MANAGE</span>
+          <button className="sidebar-link" onClick={checkApi}><Settings size={16} />System health</button>
+          <a className="sidebar-link" href={`${API_BASE_URL}/docs`} target="_blank" rel="noreferrer"><Code2 size={16} />Developer API</a>
+        </div>
+        <div className="sidebar-bottom">
+          <button className="sidebar-link help-link"><CircleHelp size={16} />Help centre</button>
+          <button className="profile-link"><span className="profile-avatar">AK</span><span><strong>Admin workspace</strong><small>admin@procurepro.in</small></span><ChevronDown size={15} /></button>
+        </div>
+      </aside>
+
+      <div className="dashboard-main">
+        <header className="topbar">
+          <div className="breadcrumbs"><span>Workspace</span><span>/</span><strong>{tab === 'input' ? 'Overview' : tab === 'results' ? 'Results' : 'New analysis'}</strong></div>
+          <div className="topbar-meta"><span className={`status-dot ${apiOnline === false ? 'offline' : ''}`} /><span className="catalogue-badge">BIS CATALOGUE CONNECTED</span><span className="header-divider" /><button className="api-status" onClick={checkApi}>API STATUS&nbsp; · &nbsp;{apiOnline === true ? 'ONLINE' : apiOnline === false ? 'OFFLINE' : 'OFFLINE'}</button><span className="header-avatar">AK</span></div>
+        </header>
+
+        <main className="content dashboard-content">
+          {(tab === 'input' || tab === 'new-analysis') && <>
+            <div className="dashboard-heading">
+              <div><div className="eyebrow">PROCUREMENT WORKSPACE</div><h1>Good morning, <em>Akash.</em></h1><p>Turn technical requirements into confident, evidence-backed standards.</p></div>
+              <button className="reset-button" onClick={reset}><RefreshCw size={14} />Reset session</button>
+            </div>
+            <section className="hero-panel">
+              <div className="hero-copy">
+                <div className="eyebrow">AI-POWERED STANDARDS DISCOVERY</div>
+                <h2>Find the standard<br /><em>behind the requirement.</em></h2>
+                <p className="hero-lede">Describe a procurement need in any language or upload a tender document.<br />ProcurePro maps it to the right Indian Standards.</p>
+                <form onSubmit={recommend} className="input-grid">
+                  <div className="query-panel panel">
+                    <div className="panel-label"><span>TEXT BRIEF</span><span className="char-count">{query.length} / 2,000</span></div>
+                    <textarea value={query} maxLength={2000} onChange={e => setQuery(e.target.value)} placeholder="e.g. Energy-efficient LED street lighting for a municipal road..." />
+                    <div className="panel-hint"><Info size={13} />Supports English, Hindi and regional languages.</div>
+                  </div>
+                  <div className="or-rule"><span>OR</span></div>
+                  <div className="upload-panel panel" onClick={() => fileInput.current?.click()} onDragOver={e => e.preventDefault()} onDrop={e => { e.preventDefault(); setFile(e.dataTransfer.files[0]) }}>
+                    <input ref={fileInput} type="file" accept=".pdf,application/pdf" onChange={e => setFile(e.target.files[0])} />
+                    {file ? <><CheckCircle2 size={20} /><strong>{file.name}</strong><small>{(file.size / 1024 / 1024).toFixed(2)} MB · PDF ready</small><button type="button" className="remove-file" onClick={e => { e.stopPropagation(); setFile(null) }}><X size={13} /> Remove</button></> : <><UploadCloud size={20} /><strong>Drop a tender PDF here</strong><span>or click to browse · max 10 MB</span></>}
+                  </div>
+                  <button className="primary-action" disabled={loading}>{loading ? <><RefreshCw className="spin" size={15} /> ANALYSING REQUIREMENT</> : <>RUN RECOMMENDATION <ArrowRight size={15} /> </>}</button>
+                </form>
+                {error && <div className="error-message">{error}</div>}
+                {requestStatus !== 'idle' && <LatticeLoader status={requestStatus} label={`Thinking${data?.explanation_source ? ` (${sourceLabel(data.explanation_source)})` : ''}`} doneLabel="Recommendation ready" errorLabel="Recommendation unavailable" pattern="orbit" grid={3} shape="round" doneColor="#16A34A" errorColor="#DC2626" cellSize={6} gap={2} fontSize={13} step={90} idleOpacity={0.15} glow={false} showTimer />}
               </div>
-              <div className="or-rule"><span>OR</span></div>
-              <div className="upload-panel panel" onClick={() => fileInput.current?.click()} onDragOver={e => e.preventDefault()} onDrop={e => { e.preventDefault(); setFile(e.dataTransfer.files[0]) }}>
-                <input ref={fileInput} type="file" accept=".pdf,application/pdf" onChange={e => setFile(e.target.files[0])} />
-                {file ? <><CheckCircle2 size={27} /><strong>{file.name}</strong><small>{(file.size / 1024 / 1024).toFixed(2)} MB · PDF ready</small><button type="button" className="remove-file" onClick={e => { e.stopPropagation(); setFile(null) }}><X size={14} /> Remove</button></> : <><UploadCloud size={27} /><strong>Drop a PDF here</strong><small>or click to browse · max 10 MB</small></>}
+              <div className="hero-scanner">
+                <div className="scanner-heading"><span className="scanner-live-dot" /><SplitFlapText words={tickerWords} text="LIVE CATALOGUE SCANNER" flipDuration={120} stagger={60} cycleDelay={2400} charset="alphanumeric" flipsPerChar={8} tileColor="transparent" textColor="#9ba8d4" tileRadius={0} gap={0} fontSize={10} loop /></div>
+                <Scanner color1="#5227FF" color2="#FF9FFC" color3="#FFFFFF" speed={0.5} sweepSpeed={0.25} sweepWidth={1.6} sweepFalloff={6} scale={1.5} frequency={2} ripple={0.22} bandDensity={11} lineSharpness={5.5} glow={0.22} scanDirection="vertical" colorSpread={0.7} brightness={0.85} contrast={1.1} softness={1.4} vignette={0.5} scanline grain grainIntensity={0.04} opacity={0.7} mouseInteraction mouseRadius={0.5} mouseStrength={0.5} />
               </div>
-              <button className="primary-action" disabled={loading}>{loading ? <><RefreshCw className="spin" size={18} /> ANALYSING REQUIREMENT</> : <>RUN RECOMMENDATION <ArrowRight size={18} /></>}</button>
-            </form>
-            {error && <div className="error-message">{error}</div>}
-            {requestStatus !== 'idle' && <LatticeLoader status={requestStatus} label={`Thinking${data?.explanation_source ? ` (${sourceLabel(data.explanation_source)})` : ''}`} doneLabel="Recommendation ready" errorLabel="Recommendation unavailable" pattern="orbit" grid={3} shape="round" doneColor="#16A34A" errorColor="#DC2626" cellSize={6} gap={2} fontSize={13} step={90} idleOpacity={0.15} glow={false} showTimer />}
-          </section>}
+            </section>
+          </>}
           {tab === 'results' && <section className="results-view">
             <div className="results-heading"><div><div className="eyebrow">ANALYSIS / RECOMMENDATIONS</div><h2><SplitFlapText text={data ? `${data.results?.length || 0} relevant standards` : 'Awaiting input'} /></h2></div><button className="quiet-action" onClick={reset}><RefreshCw size={15} /> New search</button></div>
             {loading && <LatticeLoader status="working" label="Thinking" doneLabel="Recommendation ready" errorLabel="Recommendation unavailable" pattern="orbit" grid={3} shape="round" doneColor="#16A34A" errorColor="#DC2626" cellSize={6} gap={2} fontSize={13} step={90} idleOpacity={0.15} glow={false} showTimer />}
             {!loading && data && <><div className="query-summary"><Search size={16} /><span>{data.query || 'Uploaded PDF'}</span><b>{sourceLabel(data.explanation_source, data.language)}</b></div><div className="results-list">{(data.results || []).map((item, i) => <StandardCard key={`${item.is_number}-${i}`} item={item} index={i} />)}</div>{!data.results?.length && <div className="empty-state">No matching standards were returned. Try adding more technical detail.</div>}</>}
-            {!data && !loading && <div className="empty-state">Run a search from the Input section to see recommendations.</div>}
+            {!data && !loading && <div className="empty-state">Run a search from the Overview section to see recommendations.</div>}
           </section>}
-          {tab === 'about' && <section className="about-view"><div className="eyebrow">ABOUT / METHOD</div><h1>Public standards,<br /><em>clearer decisions.</em></h1><p className="lede">StandardDesk helps procurement teams move from an open-ended technical brief to an auditable shortlist of Indian Standards.</p><div className="about-cards"><div className="about-card"><span>01</span><h3>Retrieve</h3><p>Semantic search finds relevant standards from the BIS catalogue, beyond exact keyword matches.</p></div><div className="about-card"><span>02</span><h3>Explain</h3><p>Each recommendation includes a plain-language rationale, confidence and catalogue metadata.</p></div><div className="about-card"><span>03</span><h3>Connect</h3><p>Allied standards and certification relationships keep the wider compliance context visible.</p></div></div><div className="about-note"><Clipboard size={18} /><span>Recommendations support professional judgement. Always verify the current standard and tender conditions before issue.</span></div></section>}
+          {tab === 'about' && <section className="about-view"><div className="eyebrow">ABOUT / METHOD</div><h1>Public standards,<br /><em>clearer decisions.</em></h1><p className="lede">ProcurePro helps procurement teams move from an open-ended technical brief to an auditable shortlist of Indian Standards.</p><div className="about-cards"><div className="about-card"><span>01</span><h3>Retrieve</h3><p>Semantic search finds relevant standards from the BIS catalogue, beyond exact keyword matches.</p></div><div className="about-card"><span>02</span><h3>Explain</h3><p>Each recommendation includes a plain-language rationale, confidence and catalogue metadata.</p></div><div className="about-card"><span>03</span><h3>Connect</h3><p>Allied standards and certification relationships keep the wider compliance context visible.</p></div></div><div className="about-note"><Clipboard size={18} /><span>Recommendations support professional judgement. Always verify the current standard and tender conditions before issue.</span></div></section>}
         </main>
       </div>
-      <footer className="footer"><span>© 2025 STANDARDS DESK</span><span>Ministry-grade interface for responsible procurement</span></footer>
     </div>
   )
 }
