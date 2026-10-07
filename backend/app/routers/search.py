@@ -1,18 +1,20 @@
 """Semantic standards search and related catalog metadata."""
 
 import json
+import os
+import shutil
 from datetime import datetime
 from io import BytesIO
 from pathlib import Path
 from typing import Any
 
 import faiss
-import pdfplumber
+import pymupdf
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from langdetect import DetectorFactory, LangDetectException, detect
-from pdfminer.pdfexceptions import PDFException
-from pdfminer.pdfparser import PDFSyntaxError
+from PIL import Image, ImageOps
 from pydantic import BaseModel, Field
+import pytesseract
 from sqlalchemy.orm import Session
 
 from app.db import get_db
@@ -27,6 +29,9 @@ INDEX_PATH = DATA_DIR / "faiss.index"
 MAPPING_PATH = DATA_DIR / "id_mapping.json"
 MAX_DOCUMENT_BYTES = 10 * 1024 * 1024
 MAX_DOCUMENT_PAGES = 5
+OCR_RENDER_DPI = 200
+OCR_MIN_TEXT_CHARS = 30
+IMAGE_TYPES = {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".bmp", ".webp"}
 DetectorFactory.seed = 0
 
 
@@ -179,26 +184,106 @@ def recommend_standards(request: SearchRequest, db: Session = Depends(get_db)):
     )
 
 
-def _extract_pdf_text(content: bytes) -> str:
+def _ocr_image(image: Image.Image) -> str:
+    """Recognize text locally using CPU-based Tesseract OCR."""
+    tesseract_cmd = os.getenv("TESSERACT_CMD", "").strip()
+    if not tesseract_cmd:
+        tesseract_cmd = shutil.which("tesseract") or ""
+    if not tesseract_cmd:
+        for candidate in (
+            Path(r"C:\Program Files\Tesseract-OCR\tesseract.exe"),
+            Path(r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe"),
+        ):
+            if candidate.is_file():
+                tesseract_cmd = str(candidate)
+                break
+    if tesseract_cmd:
+        pytesseract.pytesseract.tesseract_cmd = tesseract_cmd
+    processed_image = ImageOps.autocontrast(ImageOps.grayscale(image))
+    return pytesseract.image_to_string(
+        processed_image,
+        lang=os.getenv("OCR_LANG", "eng"),
+        config="--psm 6",
+    ).strip()
+
+
+def _validate_document(content: bytes) -> None:
     if not content:
-        raise HTTPException(status_code=422, detail="The uploaded PDF is empty.")
+        raise HTTPException(status_code=422, detail="The uploaded document is empty.")
     if len(content) > MAX_DOCUMENT_BYTES:
-        raise HTTPException(status_code=413, detail="The uploaded PDF exceeds the 10 MB limit.")
+        raise HTTPException(status_code=413, detail="The uploaded document exceeds the 10 MB limit.")
+
+
+def _extract_pdf_text(content: bytes) -> str:
+    _validate_document(content)
     try:
-        with pdfplumber.open(BytesIO(content)) as pdf:
-            pages = [page.extract_text() or "" for page in pdf.pages[:MAX_DOCUMENT_PAGES]]
-    except (OSError, PDFException, PDFSyntaxError, ValueError) as exc:
+        with pymupdf.open(stream=content, filetype="pdf") as document:
+            pages: list[str] = []
+            for page_number, page in enumerate(document[:MAX_DOCUMENT_PAGES], start=1):
+                text = page.get_text().strip()
+                if len(text) < OCR_MIN_TEXT_CHARS:
+                    pixmap = page.get_pixmap(dpi=OCR_RENDER_DPI)
+                    with Image.open(BytesIO(pixmap.tobytes("png"))) as image:
+                        try:
+                            text = _ocr_image(image)
+                        except pytesseract.TesseractNotFoundError as exc:
+                            raise HTTPException(
+                                status_code=503,
+                                detail=(
+                                    "Local OCR is not configured. Install Tesseract OCR "
+                                    "and make it available on PATH, or set TESSERACT_CMD."
+                                ),
+                            ) from exc
+                        except pytesseract.TesseractError as exc:
+                            raise HTTPException(
+                                status_code=503,
+                                detail=(
+                                    f"Tesseract OCR failed on PDF page {page_number}. "
+                                    "Check the OCR_LANG setting and installed language data."
+                                ),
+                            ) from exc
+                pages.append(text)
+    except HTTPException:
+        raise
+    except (OSError, ValueError, RuntimeError) as exc:
         raise HTTPException(
             status_code=422,
-            detail=f"Unable to read the PDF. Please upload a text-based PDF: {exc}",
+            detail=f"Unable to read the PDF: {exc}",
         ) from exc
-    text = "\n".join(page.strip() for page in pages if page.strip()).strip()
+    text = "\n\n".join(page for page in pages if page).strip()
     if not text:
         raise HTTPException(
             status_code=422,
-            detail="No extractable text was found in the first five PDF pages. "
-                   "Scanned PDFs require OCR before upload.",
+            detail="No readable text was found in the first five PDF pages, even after OCR.",
         )
+    return text
+
+
+def _extract_image_text(content: bytes) -> str:
+    _validate_document(content)
+    try:
+        with Image.open(BytesIO(content)) as image:
+            try:
+                text = _ocr_image(image)
+            except pytesseract.TesseractNotFoundError as exc:
+                raise HTTPException(
+                    status_code=503,
+                    detail=(
+                        "Local OCR is not configured. Install Tesseract OCR "
+                        "and make it available on PATH, or set TESSERACT_CMD."
+                    ),
+                ) from exc
+            except pytesseract.TesseractError as exc:
+                raise HTTPException(
+                    status_code=503,
+                    detail="Tesseract OCR failed. Check OCR_LANG and installed language data.",
+                ) from exc
+    except HTTPException:
+        raise
+    except (OSError, ValueError) as exc:
+        raise HTTPException(status_code=422, detail=f"Unable to read the uploaded image: {exc}") from exc
+    if not text:
+        raise HTTPException(status_code=422, detail="No readable text was found in the uploaded image.")
     return text
 
 
@@ -211,8 +296,16 @@ async def recommend_from_document(
     """Extract the first few PDF pages and run the standard recommendation pipeline."""
     if top_k < 1 or top_k > 50:
         raise HTTPException(status_code=422, detail="top_k must be between 1 and 50.")
-    if file.content_type not in (None, "application/pdf") and not (file.filename or "").lower().endswith(".pdf"):
-        raise HTTPException(status_code=415, detail="Please upload a PDF document.")
+    filename = (file.filename or "").lower()
+    extension = Path(filename).suffix
+    is_pdf = file.content_type == "application/pdf" or extension == ".pdf"
+    is_image = file.content_type is not None and file.content_type.startswith("image/")
+    is_image = is_image or extension in IMAGE_TYPES
+    if not is_pdf and not is_image:
+        raise HTTPException(
+            status_code=415,
+            detail="Upload a PDF or image (PNG, JPEG, TIFF, BMP, or WebP).",
+        )
     content = await file.read()
-    query = _extract_pdf_text(content)
+    query = _extract_pdf_text(content) if is_pdf else _extract_image_text(content)
     return _recommend(query, top_k, _detect_query_language(query), db)

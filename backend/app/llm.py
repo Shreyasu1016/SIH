@@ -71,7 +71,10 @@ def _parse_provider_response(payload: str, candidates: list[dict[str, Any]]) -> 
 
 
 def _post_json(
-    url: str, body: dict[str, Any], headers: dict[str, str] | None = None
+    url: str,
+    body: dict[str, Any],
+    headers: dict[str, str] | None = None,
+    timeout: int = 5,
 ) -> dict[str, Any]:
     request_headers = {"Content-Type": "application/json"}
     if headers:
@@ -82,7 +85,7 @@ def _post_json(
         headers=request_headers,
         method="POST",
     )
-    with urlopen(request, timeout=5) as response:
+    with urlopen(request, timeout=timeout) as response:
         return json.load(response)
 
 
@@ -109,15 +112,22 @@ def groq_provider(query: str, candidate_standards: list[dict[str, Any]]) -> Prov
 
 
 def ollama_provider(query: str, candidate_standards: list[dict[str, Any]]) -> ProviderResult:
-    """Use a locally running Ollama llama3.2 instance."""
+    """Use a locally running, resource-constrained Ollama Llama 3.1 instance."""
     response = _post_json(
         "http://localhost:11434/api/generate",
         {
-            "model": "llama3.2",
+            "model": "llama3.1:8b",
             "prompt": _prompt(query, candidate_standards),
             "stream": False,
             "format": "json",
+            "options": {
+                "num_ctx": 4096,
+                "num_thread": 4,
+                "temperature": 0.3,
+            },
+            "keep_alive": "2m",
         },
+        timeout=600,
     )
     return _parse_provider_response(response["response"], candidate_standards)
 
@@ -163,12 +173,30 @@ def rule_based_provider(query: str, candidate_standards: list[dict[str, Any]]) -
 def get_recommendation_explanation(
     query: str, candidates: list[dict[str, Any]]
 ) -> tuple[str, ProviderResult]:
-    """Try hosted LLM, local LLM, then deterministic offline explanations."""
-    providers: list[tuple[str, Callable[[str, list[dict[str, Any]]], ProviderResult]]] = [
-        ("groq", groq_provider),
-        ("ollama", ollama_provider),
-        ("rule_based", rule_based_provider),
-    ]
+    """Use the configured provider, then fall back to local deterministic rules."""
+    preferred_provider = os.getenv("LLM_PROVIDER", "ollama").strip().lower()
+    provider_map: dict[str, Callable[[str, list[dict[str, Any]]], ProviderResult]] = {
+        "groq": groq_provider,
+        "ollama": ollama_provider,
+    }
+    if preferred_provider not in provider_map:
+        raise RuntimeError(
+            "LLM_PROVIDER must be either 'ollama' or 'groq'; "
+            f"received {preferred_provider!r}."
+        )
+
+    providers: list[tuple[str, Callable[[str, list[dict[str, Any]]], ProviderResult]]]
+    if preferred_provider == "groq":
+        providers = [
+            ("groq", groq_provider),
+            ("ollama", ollama_provider),
+            ("rule_based", rule_based_provider),
+        ]
+    else:
+        providers = [
+            ("ollama", ollama_provider),
+            ("rule_based", rule_based_provider),
+        ]
     for source, provider in providers:
         try:
             result = provider(query, candidates)

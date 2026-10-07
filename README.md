@@ -141,9 +141,24 @@ cd backend
 python test_search.py "protective helmets"
 ```
 
-Recommendations try Groq first, then local Ollama (`ollama pull llama3.2`), and
-finally a deterministic rule-based provider that works without internet access.
-Set `GROQ_API_KEY` in `.env` to enable the hosted tier.
+Recommendations use local Ollama by default, then a deterministic rule-based
+provider if Ollama is unavailable. To initialize the laptop-friendly
+`llama3.1:8b` model and start Ollama with resource-conscious settings, run:
+
+```powershell
+cd backend
+python local_llm.py
+```
+
+The backend sends Ollama requests with a 4096-token context, four CPU threads,
+temperature 0.3, and a two-minute keep-alive. Groq is not contacted unless
+`LLM_PROVIDER=groq` is explicitly configured; then `GROQ_API_KEY` is required.
+
+Document recommendations accept text-based PDFs, scanned PDFs, and common
+scanned image formats. Scanned pages are rasterized and OCR'd locally with
+Tesseract CPU processing; install Tesseract separately and set `TESSERACT_CMD`
+if it is not on `PATH`. Set `OCR_LANG=eng+hin` after installing Hindi Tesseract
+language data to OCR both English and Hindi documents.
 
 Recommendation queries are embedded directly with the multilingual model. The
 response includes the detected `language` code. PDF uploads are text-extracted
