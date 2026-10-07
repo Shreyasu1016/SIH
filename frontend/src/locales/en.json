@@ -17,7 +17,7 @@
   },
   "upload": {
     "title": "Ingest tender documents",
-    "drop": "Drag & drop a PDF here",
+    "drop": "Drag & drop a PDF or scanned image here",
     "browse": "or click to browse",
     "pasteToggle": "Paste specification text",
     "pastePlaceholder": "Paste tender clauses, BOQ notes, or technical specs…",

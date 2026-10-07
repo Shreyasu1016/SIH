@@ -154,6 +154,12 @@ The backend sends Ollama requests with a 4096-token context, four CPU threads,
 temperature 0.3, and a two-minute keep-alive. Groq is not contacted unless
 `LLM_PROVIDER=groq` is explicitly configured; then `GROQ_API_KEY` is required.
 
+Document recommendations accept text-based PDFs, scanned PDFs, and common
+scanned image formats. Scanned pages are rasterized and OCR'd locally with
+Tesseract CPU processing; install Tesseract separately and set `TESSERACT_CMD`
+if it is not on `PATH`. Set `OCR_LANG=eng+hin` after installing Hindi Tesseract
+language data to OCR both English and Hindi documents.
+
 Recommendation queries are embedded directly with the multilingual model. The
 response includes the detected `language` code. PDF uploads are text-extracted
 from the first five pages; scanned PDFs return a clear OCR-related error.

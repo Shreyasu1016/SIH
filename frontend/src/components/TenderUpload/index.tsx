@@ -8,7 +8,7 @@ import { recommendDocument, recommendText } from '../../api/client'
 
 type UploadState = 'idle' | 'dragging' | 'uploading' | 'success' | 'error'
 
-/** Drag-and-drop upload + paste-text toggle — mock only, navigates to dashboard. */
+/** Drag-and-drop upload + paste-text toggle for live SIH recommendations. */
 export function TenderUpload() {
   const { t } = useLanguage()
   const navigate = useNavigate()
@@ -53,7 +53,7 @@ export function TenderUpload() {
     <div className="mx-auto max-w-3xl space-y-6">
       <div className="text-center">
         <h1 className="font-display text-3xl font-bold md:text-4xl">{t.upload.title}</h1>
-        <p className="mt-2 text-slate-400">Submit a tender PDF or paste a specification for live standards recommendations.</p>
+        <p className="mt-2 text-slate-400">Submit a tender PDF or scanned document image, or paste a specification for live standards recommendations.</p>
       </div>
 
       <GlassCard>
@@ -106,7 +106,7 @@ export function TenderUpload() {
             >
               <input
                 type="file"
-                accept=".pdf,application/pdf"
+                accept=".pdf,application/pdf,image/png,image/jpeg,image/tiff,image/bmp,image/webp"
                 className="hidden"
                 onChange={(e) => {
                   const f = e.target.files?.[0]
