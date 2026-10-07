@@ -35,6 +35,77 @@
     @apply border border-[#d9dfd7] bg-[#fbfcf8]/90 shadow-[0_18px_45px_rgba(24,37,34,0.07)];
   }
 
+  .hero-scanner {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100%;
+    height: 100%;
+    opacity: 0.26 !important;
+    pointer-events: auto;
+    background: radial-gradient(ellipse at 72% 50%, rgba(82, 39, 255, 0.36), transparent 62%);
+  }
+
+  .hero-scanner span {
+    background: #5227ff !important;
+  }
+
+  .hero-scanner i {
+    border-color: #ff9ffc !important;
+  }
+
+  .hero-scanner b {
+    border-color: #ffffff !important;
+  }
+
+  .magic-bento {
+    position: relative;
+    transform: var(--bento-transform, perspective(700px) rotateX(0deg) rotateY(0deg));
+    transition: transform 180ms ease, filter 180ms ease;
+    will-change: transform;
+  }
+
+  .magic-bento::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    pointer-events: none;
+    border-radius: 20px;
+    opacity: 0;
+    background: radial-gradient(var(--bento-radius, 300px) circle at var(--bento-x, 50%) var(--bento-y, 50%), rgba(var(--bento-glow), 0.22), transparent 70%);
+    transition: opacity 180ms ease;
+  }
+
+  .magic-bento:hover::before {
+    opacity: 1;
+  }
+
+  .magic-bento-border:hover {
+    filter: drop-shadow(0 10px 22px rgba(85, 53, 180, 0.13));
+  }
+
+  .magic-bento > *:not(.magic-bento-stars) {
+    position: relative;
+    z-index: 1;
+    transform: translate(var(--bento-shift-x, 0px), var(--bento-shift-y, 0px));
+    transition: transform 180ms ease;
+  }
+
+  .magic-bento-stars {
+    position: absolute;
+    inset: 9px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    border-radius: 18px;
+    background-image: radial-gradient(circle, rgba(132, 0, 255, 0.42) 1px, transparent 1px);
+    background-size: 23px 23px;
+    transition: opacity 180ms ease;
+  }
+
+  .magic-bento:hover .magic-bento-stars {
+    opacity: 0.32;
+  }
+
   .glass-strong {
     @apply border border-[#cdd8d0] bg-[#fbfcf8]/95 shadow-[0_18px_45px_rgba(24,37,34,0.12)];
   }

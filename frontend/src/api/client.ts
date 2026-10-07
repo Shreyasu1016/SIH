@@ -46,6 +46,11 @@ export interface RecommendationResponse {
   results: BackendRecommendation[]
 }
 
+export interface SearchResponse {
+  query: string
+  results: BackendRecommendation[]
+}
+
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 async function parseResponse<T>(response: Response): Promise<T> {
@@ -75,6 +80,14 @@ export async function recommendDocument(file: File, topK = 5): Promise<Recommend
   return parseResponse(await fetch(`${API_BASE_URL}/api/recommend-from-document?top_k=${topK}`, {
     method: 'POST',
     body: formData,
+  }))
+}
+
+export async function searchStandards(query: string, topK = 5): Promise<SearchResponse> {
+  return parseResponse(await fetch(`${API_BASE_URL}/api/search`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query, top_k: topK }),
   }))
 }
 
